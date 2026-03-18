@@ -1,3 +1,4 @@
+import  User  from "./Components/User"
 import Cards from "./Components/Cards"
 
 const App = () => {
@@ -5,7 +6,8 @@ const App = () => {
   return (
     <>
     <div className="parent">
-      <Cards/>
+      <User name="Manzar"/>
+      <User name="Abbass"/>
     </div>
     </>
 
