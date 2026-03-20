@@ -1,11 +1,9 @@
-
-
+import RightConCards from "./RightCards/RightCon-Cards"
+import "../Section1/RightCards/RightCard.css"
 const Rightcontent = () => {
   return (
-    <div className="text-white bg-amber-700 h-full w-2/3">
-      <div></div>
-      <div></div>
-      <div></div>
+    <div className="right h-full w-2/3 p-6 flex gap-5 overflow-x-auto no-scrollbar">
+        <RightConCards/>
     </div>
   )
 }
