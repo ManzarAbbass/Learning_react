@@ -34,9 +34,9 @@ const App = () => {
  {/*//....  */}
           <div onWheel={scroll}>
 
-          <div className="h-[100vh] w-full bg-black">Hello</div>
-          <div className=" h-[100vh] w-full bg-[orange]">BGG</div>
-          <div className="h-[100vh] w-full bg-[pink]">GGG</div>
+          <div className="h-screen w-full bg-black">Hello</div>
+          <div className=" h-screen w-full bg-[orange]">BGG</div>
+          <div className="h-screen w-full bg-[pink]">GGG</div>
           </div>
     </div>
   )
