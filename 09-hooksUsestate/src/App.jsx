@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 
-// ..Comment: Usestate=>React me jab ap koi variable bnate hein ya variable ko change krte hein to ap directly dom ke sath interact krte hein but react me ap directly dom ke sath interact nhi krte ap state ke sath interact krte hein state me ap variable ko store krte hein aur jab ap state change krte hein to react khud hi dom ko update kr deta hai isliye react me apko direct dom ke sath interact nhi krna padta hai example=> apko ek button bnana hai aur jab ap button pe click kro to text change ho jaye to ap directly dom ke sath interact nhi krte ap state ke sath interact krte hein aur state me ap variable ko store krte hein aur jab ap state change krte hein to react khud hi dom ko update kr deta hai isliye react me apko direct dom ke sath interact nhi krna padta hai mtlb state single source of truth hota hai apka data state me store hota hai aur jab ap state change krte hein to react khud hi dom ko update kr deta hai isliye react me apko direct dom ke sath interact nhi krna padta hai
+// ..Comment: Usestate=>useState React ka ek hook hai jo component me state (data) manage karne ke liye use hota hai.Normal JavaScript me agar hum variable change karein to UI automatically update nahi hoti, lekin React me jab hum state change karte hain to React component ko re-render karta hai aur UI automatically update ho jati hai.React me hum direct DOM manipulation nahi karte, balkay state ko update karte hain aur React khud efficiently DOM ko update karta hai.Isliye state ko "single source of truth" kaha jata hai.
 
 // Code.. without usestate
 // const App = () => {
@@ -21,20 +21,53 @@ import React, { useState } from 'react'
 // }
 
 // Code.. with usestate
+// const App = () => {
+//   const [num, setNum] = useState(5);
+//   const Increase=()=>{
+//     setNum(num+1);
+//   }
+//   return (
+//     <div>
+//       <h1>Value of num is :{num}</h1>
+//       <button onClick={()=>{
+//         Increase();
+//       }} className='bg-purple-300 text-white px-4 py-2 border border-black my-4 rounded-2xl'>Click</button>
+//     </div>
+//   )
+// }
+
+// export default App
+
 const App = () => {
-  const [num, setNum] = useState(5);
+  const [numb, setNumb] = useState(0);
   const Increase=()=>{
-    setNum(num+1);
+    setNumb(numb+1);
+  }
+  const Decrease=()=>{
+    setNumb(numb-1);
+  }
+  const Reset=()=>{
+    // setNumb(numb=0);
+    setNumb(0);
   }
   return (
-    <div>
-      <h1>Value of num is :{num}</h1>
-      <button onClick={()=>{
-        Increase();
-      }} className='bg-purple-300 text-white px-4 py-2 border border-black my-4 rounded-2xl'>Click</button>
+    <div className='bg-black w-screen h-screen p-5 flex flex-col items-center gap-10'>
+      <h1 className='bg-yellow-200 w-150 h-120 flex items-center justify-center text-9xl font-bold'> {numb}</h1>
+      <div className='flex gap-5 text-black'>
+        <button onClick={()=>{
+          Increase()
+        }} className='bg-yellow-400 px-4 py-3 rounded'>increase</button>
+        <button onClick={()=>{
+          Decrease()
+        }} className='bg-yellow-400 px-4 py-3 rounded'>decrease</button>
+        <button onClick={()=>{
+          Reset()
+        }} className='bg-yellow-400 px-4 py-3 rounded'>reset</button>
+      </div>
     </div>
   )
 }
 
 export default App
+
 
