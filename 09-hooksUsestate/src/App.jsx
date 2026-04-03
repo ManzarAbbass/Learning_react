@@ -38,6 +38,7 @@ import React, { useState } from 'react'
 
 // export default App
 
+// ..........................Practice 1 Counter APP 
 const App = () => {
   const [numb, setNumb] = useState(0);
   const Increase=()=>{
