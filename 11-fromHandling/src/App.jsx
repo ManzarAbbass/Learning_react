@@ -2,6 +2,7 @@ const App = () => {
   const submitHandler=(evtobj)=>{
     // stop the default behaviour of the form which is to refresh the page
     evtobj.preventDefault();
+    console.log(evtobj.target[0].value);
   }
   return (
     <div className="bg-black h-screen">
