@@ -1,12 +1,14 @@
 import { useState } from "react"
-
 const App = () => {
-  const [first, setfirst] = useState(second)
-  const submitHandler=()=>{}
+  const [cardheading, setHeading] = useState("");
+  const [carddetails, setDetails] = useState("");
+  const submitHandler=(evtObj)=>{
+    evtObj.preventDefault();
+  }
   return (
     <div className="bg-black h-screen text-white">
       <div>
-      <form className="flex justify-between items-start p-10">
+      <form onSubmit={submitHandler} className="flex justify-between items-start p-10">
         <div className="flex flex-col w-1/2 items-start gap-4">
         <input 
         type="text"
