@@ -5,9 +5,9 @@ const App = () => {
   const [user, setuser] = useState([]);
   const submitHandler = (evtObj) => {
     evtObj.preventDefault();
+    setuser(prev => [...prev, { "heading": cardheading, "details": carddetails }]);
     setHeading("");
     setDetails("");
-    setuser(prev => [...prev, { "heading": cardheading, "details": carddetails }]);
   }
   const getHeading = (evtObj) => {
     setHeading(evtObj.target.value);
