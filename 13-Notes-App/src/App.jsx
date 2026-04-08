@@ -2,10 +2,10 @@ import { useState } from "react"
 const App = () => {
   const [cardheading, setHeading] = useState("");
   const [carddetails, setDetails] = useState("");
-  const [user, setuser] = useState([]);
+  const [notes, setNotes] = useState([]);
   const submitHandler = (evtObj) => {
     evtObj.preventDefault();
-    setuser(prev => [...prev, { "heading": cardheading, "details": carddetails }]);
+    setNotes(prev => [...prev, { "heading": cardheading, "details": carddetails }]);
     setHeading("");
     setDetails("");
   }
@@ -34,16 +34,16 @@ const App = () => {
           id=""
           className="px-5 py-2 border-2 rounded outline-none  h-40 font-medium w-full flex items-start flex-row"
         ></textarea>
-        <button className="bg-white text-black px-5 py-2 rounded w-full">Add Note</button>
+        <button className="bg-white active:bg-gray-500 hover:scale-50 text-black px-5 py-2 rounded w-full">Add Note</button>
       </form>
       <div className="p-10 bg-slate-800 lg:border-l-2 h-full lg:w-1/2">
         <h1 className="text-3xl font-bold">Your Notes</h1>
         <div className="flex flex-wrap gap-5 mt-5 overflow-auto h-full">
-          {user.map(item,index)=>{
-            return (<div key={index} className="w-52 h-62 bg-white rounded-2xl" >
+          {notes.map(function(item,index)){
+            return <div key={index} className="w-52 h-62 bg-white rounded-2xl" >
               <h1>{item.heading}</h1>
               <p>{item.details}</p>
-            </div>)
+            </div>
           }}
         </div>
       </div>
