@@ -1,3 +1,4 @@
+import {X} from "lucide-react"
 import { useState } from "react"
 const App = () => {
   const [cardheading, setHeading] = useState("");
@@ -36,11 +37,12 @@ const App = () => {
         ></textarea>
         <button className="bg-white active:bg-gray-500 hover:scale-50 text-black px-5 py-2 rounded w-full">Add Note</button>
       </form>
-      <div className="p-10 bg-slate-800 lg:border-l-2 h-full lg:w-1/2">
+      <div className="p-10 bg-black lg:border-l-2 h-full lg:w-1/2">
         <h1 className="text-3xl font-bold">Your Notes</h1>
         <div className="flex flex-wrap gap-5 mt-5 overflow-auto h-full">
           {notes.map(function (item, index) {
             return <div key={index} className="w-52 h-62 rounded-2xl px-4 py-8 text-black bg-[url('https://static.vecteezy.com/system/resources/previews/037/152/677/non_2x/sticky-note-paper-background-free-png.png')] bg-cover">
+              <h2 className="absolute "><X size={16} strokeWidth={2.75} /></h2>
               <h1 className="text-3xl leading-tight font-bold">{item.heading}</h1>
               <p className="text-lg leading-tight font-medium mt-3">{item.details}</p>
             </div>
