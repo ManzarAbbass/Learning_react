@@ -40,7 +40,7 @@ const App = () => {
         <h1 className="text-3xl font-bold">Your Notes</h1>
         <div className="flex flex-wrap gap-5 mt-5 overflow-auto h-full">
           {notes.map(function (item, index) {
-            return <div key={index} className="w-52 h-62 bg-white rounded-2xl p-4 text-black" >
+            return <div key={index} className="w-52 h-62 rounded-2xl px-4 py-8 text-black bg-[url('https://static.vecteezy.com/system/resources/previews/037/152/677/non_2x/sticky-note-paper-background-free-png.png')] bg-cover">
               <h1 className="text-3xl leading-tight font-bold">{item.heading}</h1>
               <p className="text-lg leading-tight font-medium mt-3">{item.details}</p>
             </div>
