@@ -39,12 +39,12 @@ const App = () => {
       <div className="p-10 bg-slate-800 lg:border-l-2 h-full lg:w-1/2">
         <h1 className="text-3xl font-bold">Your Notes</h1>
         <div className="flex flex-wrap gap-5 mt-5 overflow-auto h-full">
-          {notes.map(function(item,index)){
-            return <div key={index} className="w-52 h-62 bg-white rounded-2xl" >
-              <h1>{item.heading}</h1>
-              <p>{item.details}</p>
+          {notes.map(function (item, index) {
+            return <div key={index} className="w-52 h-62 bg-white rounded-2xl p-4 text-black" >
+              <h1 className="text-3xl leading-tight font-bold">{item.heading}</h1>
+              <p className="text-lg leading-tight font-medium mt-3">{item.details}</p>
             </div>
-          }}
+          })}
         </div>
       </div>
     </div>
