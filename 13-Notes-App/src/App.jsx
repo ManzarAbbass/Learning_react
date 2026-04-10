@@ -44,12 +44,14 @@ const App = () => {
         <h1 className="text-3xl font-bold">Your Notes</h1>
         <div className="flex flex-wrap gap-5 mt-5 overflow-auto h-full">
           {notes.map(function (item, index) {
-            return <div key={index} className="w-52 h-62 rounded-2xl px-4 py-8 text-black bg-[url('https://static.vecteezy.com/system/resources/previews/037/152/677/non_2x/sticky-note-paper-background-free-png.png')] bg-cover relative">
-              <h2 onClick={()=>{
+            return <div key={index} className="flex flex-col justify-between items-start w-40 h-52 rounded-xl pt-9 pb-4 px-4 text-black bg-[url('https://static.vecteezy.com/system/resources/previews/037/152/677/non_2x/sticky-note-paper-background-free-png.png')] bg-cover">
+              <div>
+              <h3 className="text-lg leading-tight font-bold">{item.heading}</h3>
+              <p className="leading-tight text-gray-500 text-sm font-medium mt-3">{item.details}</p>
+              </div>
+              <button onClick={()=>{
                 deleteNote(index)
-              }} className="absolute top-7 right-5 bg-red-500 p-1 rounded"><X size={16} strokeWidth={2.75} /></h2>
-              <h1 className="text-3xl leading-tight font-bold">{item.heading}</h1>
-              <p className="text-lg leading-tight font-medium mt-3">{item.details}</p>
+              }} className="w-full cursor-pointer active:scale-95 bg-red-500 py-1 text-xs text-white rounded">Delete</button>
             </div>
           })}
         </div>
