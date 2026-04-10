@@ -16,6 +16,9 @@ const App = () => {
   const getDetails = (evtObj) => {
     setDetails(evtObj.target.value)
   }
+  const deleteNote = (idx) => {
+    
+  }
   return (
     <div className="bg-black h-screen text-white lg:flex">
       <form onSubmit={submitHandler} className="flex flex-col gap-4 p-10 lg:w-1/2">
@@ -41,8 +44,10 @@ const App = () => {
         <h1 className="text-3xl font-bold">Your Notes</h1>
         <div className="flex flex-wrap gap-5 mt-5 overflow-auto h-full">
           {notes.map(function (item, index) {
-            return <div key={index} className="w-52 h-62 rounded-2xl px-4 py-8 text-black bg-[url('https://static.vecteezy.com/system/resources/previews/037/152/677/non_2x/sticky-note-paper-background-free-png.png')] bg-cover">
-              <h2 className="absolute "><X size={16} strokeWidth={2.75} /></h2>
+            return <div key={index} className="w-52 h-62 rounded-2xl px-4 py-8 text-black bg-[url('https://static.vecteezy.com/system/resources/previews/037/152/677/non_2x/sticky-note-paper-background-free-png.png')] bg-cover relative">
+              <h2 onClick={()=>{
+                deleteNote(index)
+              }} className="absolute top-7 right-5 bg-red-500 p-1 rounded"><X size={16} strokeWidth={2.75} /></h2>
               <h1 className="text-3xl leading-tight font-bold">{item.heading}</h1>
               <p className="text-lg leading-tight font-medium mt-3">{item.details}</p>
             </div>
