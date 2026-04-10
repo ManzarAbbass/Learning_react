@@ -17,7 +17,7 @@ const App = () => {
     setDetails(evtObj.target.value)
   }
   const deleteNote = (idx) => {
-    
+    setNotes(prev=> prev.filter((item,index)=> index!==idx))
   }
   return (
     <div className="bg-black h-screen text-white lg:flex">
