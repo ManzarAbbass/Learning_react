@@ -16,8 +16,8 @@ const App = () => {
 
   // ... removeItem in localStorage and sessionStorage
   // {removeItem() me Key dete hein kiuke delete krnaw hota he data removeItem("name")}
-  
-  {}
+
+  localStorage.removeItem("programer");
   return (
     <div className="bg-black h-screen text-white">
       App
