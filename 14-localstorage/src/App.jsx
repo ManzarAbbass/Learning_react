@@ -22,7 +22,8 @@ const App = () => {
   // ...Clear() in localStorage and sessionStorage
   // {clear() ko hmm localStorage.clear() and sessionstorage.clear() aese likhna hota he ye pora localstorage aur sessionStorage k data ura deta he }
 
-  sessionStorage.clear()
+  sessionStorage.clear();
+  localStorage.clear();
 
   return (
     <div className="bg-black h-screen text-white">
