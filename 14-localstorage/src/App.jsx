@@ -36,8 +36,13 @@ const App = () => {
     city:"Karachi"
   }
   // console.log(user)
-  localStorage.setItem("user",JSON.stringify(user))
+  // set object in Localstorage
+  // localStorage.setItem("user",JSON.stringify(user))
 
+  const arr=["manzar","maliha","zain","nisha"];
+  // set array in localStorage
+  // console.log(arr);
+  // localStorage.setItem("students",JSON.stringify(arr))
   return (
     <div className="bg-black h-screen text-white">
       App
