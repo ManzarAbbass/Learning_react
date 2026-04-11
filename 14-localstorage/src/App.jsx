@@ -8,10 +8,16 @@ const App = () => {
 
   // ... Get Item from localStorage and sessionStorage
     // {getItem() me Key dete hein kiuke get krnaw hota he data ("name")}
-  const programer= localStorage.getItem("programer");
-  console.log(programer);
-  const role=sessionStorage.getItem("role");
-  console.log(role)
+  
+  // const programer= localStorage.getItem("programer");
+  // console.log(programer);
+  // const role=sessionStorage.getItem("role");
+  // console.log(role)
+
+  // ... removeItem in localStorage and sessionStorage
+  // {removeItem() me Key dete hein kiuke delete krnaw hota he data removeItem("name")}
+  
+  {}
   return (
     <div className="bg-black h-screen text-white">
       App
