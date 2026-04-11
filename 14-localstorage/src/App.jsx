@@ -36,13 +36,21 @@ const App = () => {
     city:"Karachi"
   }
   // console.log(user)
-  // set object in Localstorage
+  // ..set object in Localstorage
   // localStorage.setItem("user",JSON.stringify(user))
 
   const arr=["manzar","maliha","zain","nisha"];
-  // set array in localStorage
+  // ..set array in localStorage
   // console.log(arr);
   // localStorage.setItem("students",JSON.stringify(arr))
+
+
+  // ..get object and array from localStorage
+  const obj = JSON.parse(localStorage.getItem("user"))
+  console.log(obj)
+  const students = JSON.parse(localStorage.getItem("students"))
+  console.log(students)
+
   return (
     <div className="bg-black h-screen text-white">
       App
