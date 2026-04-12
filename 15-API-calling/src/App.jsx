@@ -1,9 +1,16 @@
+import axios from "axios";
 const App = () => {
+  // ...get data with fetch Api 
+  // const getData=async ()=>{
+  //   // console.log("data is fetched...!")
+  //   const data =await fetch('https://jsonplaceholder.typicode.com/todos/1');
+  //   const jsonData= await data.json();
+  //   console.log(jsonData);
+  // }
+
+  // ..get data with axios
   const getData=async ()=>{
-    // console.log("data is fetched...!")
-    const data =await fetch('https://jsonplaceholder.typicode.com/todos/1');
-    const jsonData= await data.json();
-    console.log(jsonData);
+    const data = await axios.get("");
   }
   return (
     <div className="bg-black h-screen p-5">
