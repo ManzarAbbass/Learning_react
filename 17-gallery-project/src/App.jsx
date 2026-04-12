@@ -10,7 +10,7 @@ const App = () => {
         fetchData();
       }}
         className="bg-green-600 active:scale-95 mb-3 px-5 py-2 rounded">
-        get data
+        Get data
       </button>
     </div>
   )
