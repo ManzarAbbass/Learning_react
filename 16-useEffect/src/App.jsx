@@ -20,7 +20,7 @@ const App = () => {
   // ... ye ap normal function se bh krskte ho tw ye useeffect ka proper use nhi hai useeffect ka kaam kuch aur he 
 
   // {.....................usecase of useEffect
-  // 1. jab jab apki state change hui tab tab apki useEffect call hogi mtlb side effect horha hai manlo num state change ho rha hai to useEffect call hoga isko hmm bolte hein mounting 
+  // 1. jab jab apki state change hui tab tab apki useEffect call hogi mtlb side effect horha hai manlo num state change ho rha hai to useEffect call hoga 
   //   const [num, setNum] = useState(0)
   // function changeNum(){
   //   setNum(num+1);
@@ -29,7 +29,7 @@ const App = () => {
   //   console.log("Use Effect Called");
   // })
 
-  // 2..apne agar dependency ka array pass krdia tw useEffect ek hi baar call hogaw 
+  // 2..apne agar array pass krdia tw useEffect ek hi baar call hogaw 
   // const [num, setNum] = useState(0)
   // const [num2, setNum2] = useState(100)
   // function changeNum() {
@@ -42,7 +42,7 @@ const App = () => {
   // {ab me charha hun jab jab num ki value change hogi tab tab useEffect call hoga mtlb num state ke change hone par side effect hoga to useEffect call hoga}
   // useEffect(function(){
   //   console.log("Use Effect Called of num");
-  // },[num])
+  // },[num]) isko hmm bolte updating ya re-rendering ke time pe useEffect chalna mtlb jab bhi num change ho to useEffect chale
   //  hmm ne  array me num dependencies pass krdiya mtlb jab num change ho wab useEffect chale 
   // }
 
