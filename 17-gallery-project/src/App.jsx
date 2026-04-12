@@ -1,7 +1,10 @@
+import axios from "axios";
 const App = () => {
   const fetchData=async()=>{
     // console.log("data a gya.....")
-    const response=
+    const response=await axios.get('https://picsum.photos/v2/list?page=2&limit=100')
+    const data=response.data;
+    console.log(data);
   }
   return (
     <div className="bg-black h-screen p-4 text-white">
