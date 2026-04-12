@@ -10,7 +10,9 @@ const App = () => {
 
   // ..get data with axios
   const getData=async ()=>{
-    const data = await axios.get("");
+    const response = await axios.get("https://jsonplaceholder.typicode.com/users");
+    const data=response.data;
+    console.log(data);
   }
   return (
     <div className="bg-black h-screen p-5">
