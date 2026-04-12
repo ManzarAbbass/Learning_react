@@ -2,7 +2,8 @@ const App = () => {
   const getData=async ()=>{
     // console.log("data is fetched...!")
     const data =await fetch('https://jsonplaceholder.typicode.com/todos/1');
-    console.log(data.status)
+    const jsonData= await data.json();
+    console.log(jsonData);
   }
   return (
     <div className="bg-black h-screen p-5">
