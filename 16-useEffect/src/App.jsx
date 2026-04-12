@@ -41,7 +41,7 @@ const App = () => {
 
   // {ab me charha hun jab jab num ki value change hogi tab tab useEffect call hoga mtlb num state ke change hone par side effect hoga to useEffect call hoga}
   useEffect(function(){
-    console.log("Use Effect Called");
+    console.log("Use Effect Called of num");
   },[num])
   //  hmm ne dependencies array me num pass krdiya mtlb jab num change ho wab useEffect chale 
   // }
@@ -53,10 +53,14 @@ const App = () => {
       <h1>value of num is :{num}</h1>
       <h2>value of num2 is: {num2}</h2>
 
-      <button onClick={()=>{
+      <button onMouseEnter={()=>{
         changeNum();
+      }}
+      onMouseLeave={()=>{
         setNum2(num2+10);
-      }} className="bg-red-500 p-4">Change Number</button>
+      }} 
+      className="bg-red-500 p-4">Change Number</button>
+
     </div>
   )
 }
