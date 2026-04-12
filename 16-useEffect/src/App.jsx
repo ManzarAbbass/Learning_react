@@ -57,6 +57,7 @@ const App = () => {
     console.log("B ki value change ho gayi");
   }
   useEffect(()=>{
+    aChanging();
     console.log("Use Effect of A called");
   },[a])
   return (
@@ -84,5 +85,16 @@ const App = () => {
     </div>
   )
 }
+
+// useEffect React ka hook hai jo side effects handle karta hai
+// side effects wo operations hote hain jo render ke baad perform hote hain
+// jaise API calls, localStorage, timers, etc.
+
+// [] → sirf component mount hone par chalega
+// [a] → sirf jab 'a' change hoga tab chalega
+// bina dependency → har render pe chalega (avoid)
+
+// mounting = component pehli baar render hona
+// updating = jab state change ho aur component re-render ho
 
 export default App
