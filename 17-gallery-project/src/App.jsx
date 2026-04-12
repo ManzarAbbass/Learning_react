@@ -6,7 +6,7 @@ const App = () => {
     // console.log("data a gya.....")
     const response=await axios.get('https://picsum.photos/v2/list?page=2&limit=100')
     const data=response.data;
-    console.log(data);
+    setData(data)
   }
   return (
     <div className="bg-black h-screen p-4 text-white">
