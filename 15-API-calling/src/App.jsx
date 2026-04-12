@@ -13,7 +13,8 @@ const App = () => {
   const [users, setUsers] = useState([]);
   const getData=async ()=>{
     const response = await axios.get("https://jsonplaceholder.typicode.com/users");
-    const data=await response.data;
+    const data=response.data;
+    console.log(data)
     setUsers(data);
   }
   return (
@@ -21,8 +22,8 @@ const App = () => {
       <button onClick={()=>{
         getData();
       }} className="bg-red-500 text-white px-5 py-3 rounded">Get data</button>
-      {users.map(function(ueser,idx){
-        return "Hello"
+      {users.map(function(user){
+        return <h3 key={user.id} className="text-white">{user.name},{user.id}</h3>
       })}
     </div>
   )
