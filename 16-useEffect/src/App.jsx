@@ -35,9 +35,15 @@ const App = () => {
   function changeNum() {
     setNum(num + 1);
   }
-  useEffect(function () {
+  // useEffect(function () {
+  //   console.log("Use Effect Called");
+  // }, [])
+
+  // {ab me charha hun jab jab num ki value change hogi tab tab useEffect call hoga mtlb num state ke change hone par side effect hoga to useEffect call hoga}
+  useEffect(function(){
     console.log("Use Effect Called");
-  }, [])
+  },[num])
+  //  hmm ne dependencies array me num pass krdiya mtlb jab num change ho wab useEffect chale 
   // }
 
 
@@ -46,6 +52,7 @@ const App = () => {
     <div className="bg-black h-screen text-white">
       <h1>value of num is :{num}</h1>
       <h2>value of num2 is: {num2}</h2>
+
       <button onClick={()=>{
         changeNum();
         setNum2(num2+10);
