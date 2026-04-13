@@ -4,14 +4,14 @@ const App = () => {
   const [userdata, setUserData] = useState([])
   const fetchData=async()=>{
     // console.log("data a gya.....")
-    const response=await axios.get('https://picsum.photos/v2/list?page=2&limit=100')
+    const response=await axios.get('https://picsum.photos/v2/list?page=1&limit=15')
     const data=response.data;
-    setData(data);
+    setUserData(data);
   }
-  let isHave="No Image is Available";
+  let isuserHave="No User is Available";
   if(userdata.length>0){
-    isHave=userdata.map(function(user){
-      
+    isuserHave=userdata.map(function(user){
+      return <h1 key={user.id}>Hello,{user.id}</h1>
     })
   }
 
@@ -24,8 +24,8 @@ const App = () => {
         className="bg-green-600 active:scale-95 mb-3 px-5 py-2 rounded">
         Get data
       </button>
-      <div>
-        <div>{isHave}</div>
+      <div className="flex">
+        <div>{isuserHave}</div>
       </div>
     </div>
   )
