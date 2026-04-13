@@ -31,7 +31,7 @@ const App = () => {
         <button className="bg-green-500 px-7 py-4 rounded">Next</button>
         <button className="bg-green-500 px-7 py-4 rounded">Prev</button>
         </div>
-      <div className="flex flex-wrap gap-4 p-5 justify-center items-center h-screen overflow-auto">
+      <div className="flex flex-wrap gap-4 p-5 justify-center items-center h-screen overflow-auto no-scrollbar">
         {isuserHave}
       </div>
     </div>
