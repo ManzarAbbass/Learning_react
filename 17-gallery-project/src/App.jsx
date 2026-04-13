@@ -26,7 +26,7 @@ const App = () => {
     })
   }
   return (
-    <div className="bg-black  p-4 text-white">
+    <div className="bg-black  p-4 text-white flex flex-col gap-4">
         <div className="flex gap-4 mt-5 justify-center">
         <button className="bg-green-500 px-7 py-4 rounded">Next</button>
         <button className="bg-green-500 px-7 py-4 rounded">Prev</button>
