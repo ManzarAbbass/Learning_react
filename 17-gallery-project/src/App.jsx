@@ -12,7 +12,7 @@ const App = () => {
   useEffect(()=>{
     fetchData()
   },[])
-  let isuserHave = "No User is Available";
+  let isuserHave = <h3 className="text-gray-400 text-xs">No User Available</h3>
   if (userdata.length > 0) {
     isuserHave = userdata.map(function (user) {
       return <div key={user.id} className="flex flex-col items-center gap-2">
@@ -25,7 +25,6 @@ const App = () => {
       </div>
     })
   }
-
   return (
     <div className="bg-black h-screen p-4 text-white">
       <div className="flex flex-wrap gap-4">
