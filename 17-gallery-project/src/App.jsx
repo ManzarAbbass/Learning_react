@@ -30,8 +30,8 @@ const App = () => {
       <div className="flex flex-wrap gap-4 p-5 justify-center items-center">
         {isuserHave}
         <div>
-        <button>Next</button>
-        <button>Prev</button>
+        <button className="bg-green-500">Next</button>
+        <button className="bg-green-500">Prev</button>
         </div>
       </div>
     </div>
