@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 const App = () => {
-  const [userdata, setUserData] = useState([])
+  const [userdata, setUserData] = useState([]);
+  const [currentPage, setCurrentPage]= useState(1);
   const fetchData = async () => {
     // console.log("data a gya.....")
     const response = await axios.get('https://picsum.photos/v2/list?page=3&limit=30')
