@@ -26,7 +26,8 @@ const App = () => {
   }
 
   function getInput(parmtr){
-    console.log(parmtr)
+    // console.log(parmtr)
+    setUserInput(parmtr.target.value)
   }
 
   let isuserHave = <h3 className="text-gray-400 text-xs">No User Available</h3>
