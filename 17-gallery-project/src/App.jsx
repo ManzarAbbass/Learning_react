@@ -13,6 +13,15 @@ const App = () => {
   useEffect(()=>{
     fetchData()
   },[])
+
+  function nextPage(){
+
+  }
+
+  function prevPage(){
+    
+  }
+
   let isuserHave = <h3 className="text-gray-400 text-xs">No User Available</h3>
   if (userdata.length > 0) {
     isuserHave = userdata.map(function (user) {
