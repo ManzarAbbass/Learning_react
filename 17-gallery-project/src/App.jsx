@@ -42,7 +42,7 @@ const App = () => {
         <div className="flex gap-4 mt-5 justify-center">
         <button onClick={()=>{
           prevPage()
-        }} className={`bg-green-500 px-7 py-4 rounded hover:bg-green-600}`}>Prev</button>
+        }} className={`bg-green-500 px-7 py-4 rounded hover:bg-green-600} ${currentPage===1?"opacity-50 cursor-not-allowed":""}`}>Prev</button>
         <button onClick={()=>{
           nextPage()
         }} className="bg-green-500 px-7 py-4 rounded hover:bg-green-600">Next</button>
