@@ -28,8 +28,8 @@ const App = () => {
   return (
     <div className="bg-black  p-4 text-white flex flex-col gap-4">
         <div className="flex gap-4 mt-5 justify-center">
-        <button className="bg-green-500 px-7 py-4 rounded hover:bg-green-600">Next</button>
         <button className="bg-green-500 px-7 py-4 rounded hover:bg-green-600">Prev</button>
+        <button className="bg-green-500 px-7 py-4 rounded hover:bg-green-600">Next</button>
         </div>
       <div className="flex flex-wrap gap-4 p-5 justify-center items-center h-screen overflow-auto no-scrollbar">
         {isuserHave}
