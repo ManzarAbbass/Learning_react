@@ -4,6 +4,7 @@ const App = () => {
   const [userdata, setUserData] = useState([]);
   const [currentPage, setCurrentPage]= useState(1);
   const [userInp,setUserInput]=useState("");
+  console.log(filterdata)
   const fetchData = async () => {
     // console.log("data a gya.....")
     const response = await axios.get(`https://picsum.photos/v2/list?page=${currentPage}&limit=30`)
@@ -43,17 +44,19 @@ const App = () => {
     })
   }
 
-isuserHave=userdata.filter((elem)=>{
-  if(elem.author.tolowerCase().includes(userInp.toLocaleLowerCase())){
-    return <div key={elem.id} className="flex flex-col items-center gap-2 p-2 bg-gray-800 rounded-xl">
-        <a href={elem.url} target="_blank" rel="noreferrer">
+const filterdata=userdata.filter((elem)=>{
+  return elem.author.toLowerCase().includes(userInp.toLowerCase())
+})
+
+isuserHave=filterdata.map(function(filteruser){
+  return <div key={filteruser.id} className="flex flex-col items-center gap-2 p-2 bg-gray-800 rounded-xl">
+        <a href={filteruser.url} target="_blank" rel="noreferrer">
         <div className="h-45 w-55 overflow-hidden rounded-xl">
-          <img className="h-full w-full object-cover" src={elem.download_url} alt="img" />
+          <img className="h-full w-full object-cover" src={filteruser.download_url} alt="img" />
         </div>
-        <h2 className="font-bold text-lg">{elem.author}</h2>
+        <h2 className="font-bold text-lg">{filteruser.author}</h2>
         </a>
-      </div>;
-  }
+      </div>
 })
   return (
     <div className="bg-black h-screen p-4 text-white flex flex-col gap-4">
