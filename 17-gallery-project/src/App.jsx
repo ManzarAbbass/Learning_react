@@ -39,8 +39,8 @@ const App = () => {
   }
   return (
     <div className="bg-black h-screen p-4 text-white flex flex-col gap-4">
-      <div>
-        <input type="text" placeholder="Search..." className="bg-gray-800 text-white placeholder:text-gray-500 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      <div className="flex justify-center">
+        <input type="text" placeholder="Search..." className="bg-gray-800 text-white placeholder:text-gray-500 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 px-3 py-4 w-80 rounded-xl" />
       </div>
       <div className="flex flex-wrap gap-4 p-5 justify-center items-center flex-1 overflow-y-auto no-scrollbar">
         {isuserHave}
