@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 const App = () => {
   const [userdata, setUserData] = useState([]);
   const [currentPage, setCurrentPage]= useState(1);
+  const [userInp,setUserInput]=useState("");
   const fetchData = async () => {
     // console.log("data a gya.....")
     const response = await axios.get(`https://picsum.photos/v2/list?page=${currentPage}&limit=30`)
@@ -24,6 +25,10 @@ const App = () => {
     }
   }
 
+  function getInput(parmtr){
+    console.log(parmtr)
+  }
+
   let isuserHave = <h3 className="text-gray-400 text-xs">No User Available</h3>
   if (userdata.length > 0) {
     isuserHave = userdata.map(function (user) {
@@ -40,7 +45,14 @@ const App = () => {
   return (
     <div className="bg-black h-screen p-4 text-white flex flex-col gap-4">
       <div className="flex justify-center">
-        <input type="text" placeholder="Search..." className="bg-gray-800 text-white placeholder:text-gray-500 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 px-3 py-4 w-80 rounded-xl" />
+        <input 
+        value={userInp}
+        type="text" 
+        placeholder="Search..." 
+        className="bg-gray-800 text-white placeholder:text-gray-500 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 px-3 py-4 w-80 rounded-xl"
+        onInput={(evtObj)=>{
+          getInput(evtObj)
+        }} />
       </div>
       <div className="flex flex-wrap gap-4 p-5 justify-center items-center flex-1 overflow-y-auto no-scrollbar">
         {isuserHave}
