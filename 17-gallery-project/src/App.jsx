@@ -50,7 +50,7 @@ const App = () => {
         type="text" 
         placeholder="Search..." 
         className="bg-gray-800 text-white placeholder:text-gray-500 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 px-3 py-4 w-80 rounded-xl"
-        onInput={(evtObj)=>{
+        onChange={(evtObj)=>{
           getInput(evtObj)
         }} />
       </div>
