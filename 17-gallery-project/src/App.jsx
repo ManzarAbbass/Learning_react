@@ -42,6 +42,19 @@ const App = () => {
       </div>
     })
   }
+
+isuserHave=userdata.filter((elem)=>{
+  if(elem.author.tolowerCase().includes(userInp.toLocaleLowerCase())){
+    return <div key={elem.id} className="flex flex-col items-center gap-2 p-2 bg-gray-800 rounded-xl">
+        <a href={elem.url} target="_blank" rel="noreferrer">
+        <div className="h-45 w-55 overflow-hidden rounded-xl">
+          <img className="h-full w-full object-cover" src={elem.download_url} alt="img" />
+        </div>
+        <h2 className="font-bold text-lg">{elem.author}</h2>
+        </a>
+      </div>;
+  }
+})
   return (
     <div className="bg-black h-screen p-4 text-white flex flex-col gap-4">
       <div className="flex justify-center">
