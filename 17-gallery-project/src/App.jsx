@@ -4,7 +4,6 @@ const App = () => {
   const [userdata, setUserData] = useState([]);
   const [currentPage, setCurrentPage]= useState(1);
   const [userInp,setUserInput]=useState("");
-  console.log(filterdata)
   const fetchData = async () => {
     // console.log("data a gya.....")
     const response = await axios.get(`https://picsum.photos/v2/list?page=${currentPage}&limit=30`)
