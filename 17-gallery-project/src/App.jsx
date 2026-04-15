@@ -4,6 +4,7 @@ const App = () => {
   const [userdata, setUserData] = useState([]);
   const [currentPage, setCurrentPage]= useState(1);
   const [userInp,setUserInput]=useState("");
+  const [debounceinp, setDebounceInp] = useState("")
   const fetchData = async () => {
     // console.log("data a gya.....")
     const response = await axios.get(`https://picsum.photos/v2/list?page=${currentPage}&limit=30`)
@@ -11,22 +12,6 @@ const App = () => {
     setUserData(data);
     console.log(data);
   }
-
-  const debounce=(fnc,delay)=>{
-    let timer;
-    return function(...arg){
-      clearTimeout(timer);
-      timer=setTimeout(()=>{
-          fnc(...arg);
-      },delay)
-    }
-  }
-
-  useEffect(()=>{
-    debounce(function(){
-
-    },2000)
-  },[userInp])
 
   useEffect(()=>{
     fetchData()
@@ -58,7 +43,7 @@ const App = () => {
   //       </a>
   //     </div>
   //   })
-  // }
+  // }  extra mapping 
 
 const filterdata=userdata.filter((elem)=>{
   return elem.author.toLowerCase().includes(userInp.toLowerCase())
