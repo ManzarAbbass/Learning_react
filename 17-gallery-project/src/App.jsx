@@ -69,7 +69,7 @@ const App = () => {
     </div>
   })}
   else{
-    return isuserHave=<h2 className="text-white font-bold text-xl">No user Available</h2>
+    isuserHave=<h2 className="text-white font-bold text-xl">No user Available</h2>
   }
 
   return (
