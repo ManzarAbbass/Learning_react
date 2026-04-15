@@ -11,6 +11,12 @@ const App = () => {
     setUserData(data);
     console.log(data);
   }
+
+  
+  useEffect(()=>{
+    deboun
+  },[userInp])
+
   useEffect(()=>{
     fetchData()
   },[currentPage])
