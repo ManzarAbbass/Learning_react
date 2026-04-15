@@ -12,9 +12,20 @@ const App = () => {
     console.log(data);
   }
 
-  
+  const debounce=(fnc,delay)=>{
+    let timer;
+    return function(...arg){
+      clearTimeout(timer);
+      timer=setTimeout(()=>{
+          fnc(...arg);
+      },delay)
+    }
+  }
+
   useEffect(()=>{
-    deboun
+    debounce(function(){
+
+    },2000)
   },[userInp])
 
   useEffect(()=>{
@@ -81,7 +92,7 @@ isuserHave=filterdata.map(function(filteruser){
         <div className="flex gap-4 mt-5 justify-center items-center">
         <button onClick={()=>{
           prevPage()
-        }} className={`bg-green-500 px-7 py-4 rounded hover:bg-green-600} ${currentPage===1?"opacity-50 cursor-not-allowed":""}`}>Prev</button>
+        }} className={`bg-green-500 px-7 py-4 rounded hover:bg-green-600 ${currentPage===1?"opacity-50 cursor-not-allowed":""}`}>Prev</button>
         <p className="text-gray-500">Page {currentPage}</p>
         <button onClick={()=>{
           nextPage()
