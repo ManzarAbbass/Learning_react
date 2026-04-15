@@ -1,0 +1,29 @@
+BrowserRouter=clients side routing ke liye best he aur ye browser history store krke rkhta he 
+
+{
+    sheriyans.com/ = /home
+    sheriyans.com/courses = /courses
+    sheriyans.com/about = /about
+}
+
+HashRouter= same browser ki trha hota he bs phele # ajata he is ki help se ap server ko nahi pata lagane dete ke ap kis Route pe hein mtlb ap hidden rkhna chaty hein
+{
+    sheriyans.com/ = /#/home
+    sheriyans.com/courses = /#/courses
+    sheriyans.com/about = /#/about
+}
+
+MemoryRouter = A declarative <Router> that stores all entries in memory. ye zyada tr react Native me use hota he agr stactcally jana chahte ho wha use hota hey.
+
+{
+function MemoryRouter({
+  basename,
+  children,
+  initialEntries,
+  initialIndex,
+  unstable_useTransitions,
+}: MemoryRouterProps): React.ReactElement
+
+}
+
+StaticRoute = ye zyada tr static sites generation me help krta hey like (nextjs,remixjs)
