@@ -47,18 +47,18 @@ const App = () => {
   }
 
   let isuserHave = <h3 className="text-gray-400 text-xs">No User Available</h3>
-  if (userdata.length > 0) {
-    isuserHave = userdata.map(function (user) {
-      return <div key={user.id} className="flex flex-col items-center gap-2 p-2 bg-gray-800 rounded-xl">
-        <a href={user.url} target="_blank" rel="noreferrer">
-        <div className="h-45 w-55 overflow-hidden rounded-xl">
-          <img className="h-full w-full object-cover" src={user.download_url} alt="img" />
-        </div>
-        <h2 className="font-bold text-lg">{user.author}</h2>
-        </a>
-      </div>
-    })
-  }
+  // if (userdata.length > 0) {
+  //   isuserHave = userdata.map(function (user) {
+  //     return <div key={user.id} className="flex flex-col items-center gap-2 p-2 bg-gray-800 rounded-xl">
+  //       <a href={user.url} target="_blank" rel="noreferrer">
+  //       <div className="h-45 w-55 overflow-hidden rounded-xl">
+  //         <img className="h-full w-full object-cover" src={user.download_url} alt="img" />
+  //       </div>
+  //       <h2 className="font-bold text-lg">{user.author}</h2>
+  //       </a>
+  //     </div>
+  //   })
+  // }
 
 const filterdata=userdata.filter((elem)=>{
   return elem.author.toLowerCase().includes(userInp.toLowerCase())
