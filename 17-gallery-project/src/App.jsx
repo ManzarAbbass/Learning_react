@@ -72,10 +72,11 @@ isuserHave=filterdata.map(function(filteruser){
       <div className="flex flex-wrap gap-4 p-5 justify-center items-center flex-1 overflow-y-auto no-scrollbar">
         {isuserHave}
       </div>
-        <div className="flex gap-4 mt-5 justify-center">
+        <div className="flex gap-4 mt-5 justify-center items-center">
         <button onClick={()=>{
           prevPage()
         }} className={`bg-green-500 px-7 py-4 rounded hover:bg-green-600} ${currentPage===1?"opacity-50 cursor-not-allowed":""}`}>Prev</button>
+        <p className="text-gray-500">Page {currentPage}</p>
         <button onClick={()=>{
           nextPage()
         }} className="bg-green-500 px-7 py-4 rounded hover:bg-green-600">Next</button>
