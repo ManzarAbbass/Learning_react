@@ -10,7 +10,6 @@ const App = () => {
     const response = await axios.get(`https://picsum.photos/v2/list?page=${currentPage}&limit=30`)
     const data = response.data;
     setUserData(data);
-    console.log(data);
   }
 
   useEffect(() => {
