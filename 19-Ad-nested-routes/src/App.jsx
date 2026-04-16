@@ -17,9 +17,16 @@ const App = () => {
       <Route path="/" element={<Home/>} />
       <Route path="/about" element={<About/>} />
       <Route path="/contact" element={<Contact/>} />
-      <Route path="/product" element={<Product/>} />
+      {/* ....1st way of Nested Routes  */}
+      {/* <Route path="/product" element={<Product/>} />
       <Route path="/product/men" element={<Men/>} />
-      <Route path="/product/women" element={<Women />} />
+      <Route path="/product/women" element={<Women />} /> */}
+
+        {/* ....2nd way of nested routes */}
+        <Route path="/product" element={<Product/>}>
+          <Route path="men" element={<Men/>} />
+          <Route path="women" element={<Women/>} />
+        </Route>
       <Route path="*" element={<Notefound />} />
       </Routes>
       <Footer />
