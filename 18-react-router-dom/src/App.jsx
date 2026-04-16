@@ -3,6 +3,7 @@ import Home from './pages/home'
 import About from './pages/about'
 import Contact from './pages/contact'
 import Navbar from './components/Navbar'
+import Product from './pages/Product'
 const App = () => {
   return (
     <div className="bg-black h-screen text-white"> 
@@ -11,6 +12,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path='/product' element={<Product/>} />
       </Routes>
     </div>
   )
