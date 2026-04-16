@@ -8,6 +8,7 @@ import Notefound from './pages/Notfound'
 import Product from "./pages/Product"
 import Men from "./pages/Men"
 import Women from "./pages/Women"
+import Kid from "./pages/Kid"
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/product" element={<Product />}>
           <Route path="men" element={<Men />} />
           <Route path="women" element={<Women />} />
+          <Route path="kid" element={<Kid />} />
         </Route>
       <Route path="*" element={<Notefound />} />
       </Routes>
