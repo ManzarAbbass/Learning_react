@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
 
 const Product = () => {
   return (
@@ -8,6 +8,7 @@ const Product = () => {
             <Link className="underline"  to='/product/women'>Womens</Link>
         </div>
       <h1 className="absolute top-[30%] left-[50%] transform -translate-x-1/2 translate-y-1/2 text-8xl underline">Product Page</h1>
+      <Outlet/>
     </div>
   )
 }
