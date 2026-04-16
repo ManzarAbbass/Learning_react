@@ -1,7 +1,7 @@
 const About = () => {
   return (
-    <div className="text-white">
-      <h1>About</h1>
+    <div className="about">
+      <h1 className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 text-8xl underline">About Page</h1>
     </div>
   )
 }
