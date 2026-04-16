@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom"
-
 const Navbar = () => {
   return (
     <div className='flex justify-between px-10 py-5 bg-fuchsia-500'>
