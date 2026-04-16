@@ -1,10 +1,35 @@
+import { Link } from 'react-router-dom';
+import './NotFound.css';
 
 const Notfound = () => {
   return (
-    <div>
-      <h1 className="absolute top-[30%] left-[50%] transform -translate-x-1/2 translate-y-1/2 text-8xl underline whitespace-nowrap">404 | Page not found</h1>
-    </div>
-  )
-}
+    <section className="page_404 bg-black">
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-12">
+            <div className="col-sm-10 col-sm-offset-1 text-center">
+              
+              <div className="four_zero_four_bg">
+                <h1 className='text-black'>404 | Page Not Found</h1>
+              </div>
 
-export default Notfound
+              <div className="contant_box_404">
+                <h3 className="h2 text-2xl font-bold">Look like you're lost</h3>
+                <p>the page you are looking for not available!</p>
+                
+                {/* href="" ki jagah Link tag use karein */}
+                <Link to="/" className="link_404">
+                  Go to Home
+                </Link>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Notfound;
+
