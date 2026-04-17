@@ -9,6 +9,8 @@ import Product from "./pages/Product"
 import Men from "./pages/Men"
 import Women from "./pages/Women"
 import Kid from "./pages/Kid"
+import Courses from "./pages/Courses"
+import Coursedet from "./pages/Coursedet"
 
 const App = () => {
   return (
@@ -23,6 +25,8 @@ const App = () => {
           <Route path="women" element={<Women />} />
           <Route path="kid" element={<Kid />} />
         </Route>
+        <Route path="/courses" element={<Courses/>}/>
+        <Route path="/courses/:id" element={<Coursedet/>}/>
         <Route path="*" element={<Notefound />} />
       </Routes>
       <Footer />
