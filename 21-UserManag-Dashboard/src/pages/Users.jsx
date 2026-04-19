@@ -3,7 +3,7 @@ import SearchBar from "../components/SearchBar"
 import UserCard from "../components/UserCard"
 import { getUsers } from "../services/Services"
 const Users = () => {
-  const [users, setUsers] = useState(null)
+  const [users, setUsers] = useState([])
   useEffect(()=>{
     const fetchUsers=async ()=>{
     const data=await getUsers()
@@ -16,8 +16,12 @@ const Users = () => {
       <div className="mb-5">
       <SearchBar/>
       </div>
-    <div className="grid grid-cols-1 md:grid-cols-2 sm:grid-cols-3 gap-6">
-      <UserCard user={users}/>
+    <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-6">
+      {
+        users.map((u)=>{
+         return <UserCard key={u.id} user={u}/>
+        })
+      }
     </div>
     </div>
   )
