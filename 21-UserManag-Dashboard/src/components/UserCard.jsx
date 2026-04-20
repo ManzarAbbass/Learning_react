@@ -13,7 +13,7 @@ const UserCard = ({user}) => {
         </div>
         <button 
         onClick={()=>{
-          navigate(`/user/${user.id}`)
+          navigate(`/userdetail/${user.id}`)
         }}
         className="mt-3 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">View Details</button>
     </div>

@@ -10,16 +10,15 @@ const UserDetail = () => {
     const fetchUser=async ()=>{
       const data=await getUsers()
       const findUser=data.find((u)=>(u.id===Number(id)))
-      console.log(findUser)
       setUser(findUser)
     }
     fetchUser()
   },[id])
   
-  if(!user) return <h2>{"Loading User....."}</h2>
+  if(!user) return <h2 className="absolute top-[50%] left-[50%] font-bold text-3xl">{"Loading User....."}</h2>
 
   return (
-    <div>
+    <div className="h-screen flex justify-center items-center bg-amber-500"> 
     <div className="bg-white flex flex-col items-center gap-6 p-4 rounded-xl shadow hover:shadow-lg transition cursor-pointer">
       <div className="flex flex-col items-center gap-2">
         <h2 className="text-lg font-semibold">{user.name}</h2>
