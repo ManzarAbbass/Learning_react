@@ -1,11 +1,15 @@
 
 import { Link, useNavigate } from "react-router-dom"
 import UserDetail from "../pages/UserDetail"
+import { Star } from "lucide-react"
 
 const UserCard = ({user}) => {
   const navigate=useNavigate()
   return (
-    <div className="bg-white flex flex-col items-center gap-6 p-4 rounded-xl shadow hover:shadow-lg transition cursor-pointer">
+    <div className="bg-white flex flex-col items-center gap-6 p-5 rounded-xl shadow hover:shadow-lg transition cursor-pointer relative">
+        <button>
+          <Star className="absolute top-2 right-2" color="blue" fill="null" size={20}/>
+        </button>
       <div className="flex flex-col items-center gap-2">
         <h2 className="text-lg font-semibold">{user.name}</h2>
         <p className="text-sm text-gray-500">{user.email}</p>
