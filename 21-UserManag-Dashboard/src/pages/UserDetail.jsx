@@ -24,7 +24,7 @@ const UserDetail = () => {
 
   return (
     <div className="h-screen flex justify-center items-center bg-amber-500"> 
-    <div className="bg-white flex flex-col items-center gap-6 p-4 rounded-xl shadow hover:shadow-lg transition cursor-pointer">
+    <div className="bg-white flex flex-col items-center p-4 rounded-xl shadow hover:shadow-lg transition cursor-pointer ">
       <div className="flex flex-col items-center gap-2">
         <h2 className="text-lg font-semibold">{user.name}</h2>
         <p className="text-sm text-gray-500">{user.email}</p>
