@@ -8,7 +8,7 @@ const UserCard = ({ user , fav , toggleFavorite}) => {
   return (
     <div className="bg-white flex flex-col items-center gap-6 p-5 rounded-xl shadow hover:shadow-lg transition cursor-pointer relative">
       <button
-        onClick={(evtObj) => {
+        onClick={() => {
           toggleFavorite(user.id)
         }}
         className="absolute top-2 right-2">

@@ -6,6 +6,7 @@ const Users = () => {
   const [users, setUsers] = useState([])
   const [favorites, setFavorites] = useState([])
 
+  const save
 
   const toggleFavorite = (userId) => {
     if (favorites.includes(userId)) {
@@ -14,7 +15,7 @@ const Users = () => {
       setFavorites([...favorites, userId])
     }
   }
-  
+
   useEffect(() => {
     const fetchUsers = async () => {
       const data = await getUsers()
