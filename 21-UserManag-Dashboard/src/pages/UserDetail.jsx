@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { getUsers } from "../services/Services"
 
 const UserDetail = () => {
   const {id}=useParams()
   const [user, setUser] = useState(null)
+  const navigate=useNavigate();
+
+  function goBackToUsers(){
+    navigate("/")
+  }
 
   useEffect(()=>{
     const fetchUser=async ()=>{
@@ -25,7 +30,11 @@ const UserDetail = () => {
         <p className="text-sm text-gray-500">{user.email}</p>
         <p className="text-sm">{user?.address?.city}</p>
         </div>
-        <button className="mt-3 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
+        <button 
+        onClick={()=>{
+          goBackToUsers()
+        }}
+        className="mt-3 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
           Go Back
         </button>
         </div>
