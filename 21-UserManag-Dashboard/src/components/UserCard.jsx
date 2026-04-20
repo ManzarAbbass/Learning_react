@@ -2,17 +2,15 @@
 import { Link, useNavigate } from "react-router-dom"
 import UserDetail from "../pages/UserDetail"
 import { Star } from "lucide-react"
-import { useState } from "react"
 
-const UserCard = ({user}) => {
-
+const UserCard = ({user,toggle}) => {
   const navigate=useNavigate()
   return (
     <div className="bg-white flex flex-col items-center gap-6 p-5 rounded-xl shadow hover:shadow-lg transition cursor-pointer relative">
         <button 
         onClick={(evtObj)=>{
           console.log(evtObj)
-          toggleFavorite()
+          toggle()
         }}
         className="absolute top-2 right-2">
           <Star color="blue" fill={iconfill?"blue":"none"} size={20}/>
