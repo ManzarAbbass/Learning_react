@@ -5,16 +5,13 @@ import { Star } from "lucide-react"
 import { useState } from "react"
 
 const UserCard = ({user}) => {
-  const [iconfill, setIconFill] = useState(false)
-  const navigate=useNavigate()
 
-  const toggleFavorite=()=>{
-    setIconFill(!iconfill)
-  }
+  const navigate=useNavigate()
   return (
     <div className="bg-white flex flex-col items-center gap-6 p-5 rounded-xl shadow hover:shadow-lg transition cursor-pointer relative">
         <button 
-        onClick={()=>{
+        onClick={(evtObj)=>{
+          console.log(evtObj)
           toggleFavorite()
         }}
         className="absolute top-2 right-2">
