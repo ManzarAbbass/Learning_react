@@ -5,7 +5,6 @@ import { getUsers } from "../services/Services"
 const Users = () => {
   const [users, setUsers] = useState([])
   const [favorites, setfavorites] = useState([])
-  const [iconfill, setIconFill] = useState(false)
    const toggleFavorite = () => {
     setIconFill(!iconfill)
   }
@@ -25,7 +24,7 @@ const Users = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-6">
         {
           users.map((u) => {
-            return <UserCard key={u.id} user={u} toggle={} />
+            return <UserCard key={u.id} user={u} toggle={toggleFavorite} />
           })
         }
       </div>
