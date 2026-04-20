@@ -4,7 +4,7 @@ import UserCard from "../components/UserCard"
 import { getUsers } from "../services/Services"
 const Users = () => {
   const [users, setUsers] = useState([])
-  const [favorites, setfavorites] = useState([])
+  const [favorites, setFavorites] = useState([])
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -22,7 +22,7 @@ const Users = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-6">
         {
           users.map((u) => {
-            return <UserCard key={u.id} user={u}/>
+            return <UserCard key={u.id} user={u}  />
           })
         }
       </div>

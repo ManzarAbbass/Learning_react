@@ -5,20 +5,20 @@ import { Star } from "lucide-react"
 import { useState } from "react"
 
 const UserCard = ({ user }) => {
-  const [iconfill, setIconFill] = useState(false)
+const [isfavorite, setIsFavorite] = useState(false)
   const navigate = useNavigate()
 
   const toggleFavorite = () => {
-    setIconFill(!iconfill)
+    setIsFavorite(!isfavorite)
   }
   return (
     <div className="bg-white flex flex-col items-center gap-6 p-5 rounded-xl shadow hover:shadow-lg transition cursor-pointer relative">
       <button
         onClick={(evtObj) => {
-          toggle()
+          toggleFavorite()
         }}
         className="absolute top-2 right-2">
-        <Star color="blue" fill={iconfill ? "blue" : "none"} size={20} />
+        <Star color="blue" fill={isfavorite ? "blue" : "none"} size={20} />
       </button>
       <div className="flex flex-col items-center gap-2">
         <h2 className="text-lg font-semibold">{user.name}</h2>
