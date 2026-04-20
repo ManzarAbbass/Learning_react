@@ -6,7 +6,8 @@ const Users = () => {
   const [users, setUsers] = useState([])
   const [favorites, setFavorites] = useState([])
 
-  const save
+  // localStorage.clear()
+  localStorage.setItem("favItem", JSON.stringify(favorites))
 
   const toggleFavorite = (userId) => {
     if (favorites.includes(userId)) {
