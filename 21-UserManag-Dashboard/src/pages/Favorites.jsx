@@ -20,21 +20,21 @@ const Favorites = () => {
     navigate("/")
   }
 
-  if (favuser.length === 0) return <div className='absolute top-[40%] left-[35%] flex flex-col items-center gap-4 bg-blue-200 border-2 border-solid border-gray-300 p-6 rounded-lg text-gray-700'>
+  if (favuser.length === 0) return <div className=' flex flex-col items-center justify-center gap-4 bg-blue-200 border-2 border-solid border-gray-300 p-6 rounded-lg text-gray-700'>
   <h2 className=" font-bold text-xl">{"No Favorite User Found....."}  </h2>
   <p>{"Please Click on the Star Icon to Add Users to Favorites"}</p>
   <button onClick={goBackToUsers} className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
     return home
   </button>
   </div> 
+  
   return (
-    favuser.map((u)=>{
-      return <div className="max-w-6xl mx-auto p-6">
-        <div>
-        <h2 className='text-center font-bold text-3xl border-blue-600 border-solid'>Favourites User</h2>
-        </div>
-          <div className='grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-6 m-6'>
-          <div className="bg-white flex flex-col items-center gap-6 p-5 rounded-xl shadow hover:shadow-lg transition cursor-pointer relative">
+    <div className="max-w-6xl mx-auto p-6">
+      <h2 className='text-center font-bold text-3xl border-blue-600 border-solid'>Favourites User</h2>
+    <div className='grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-6 m-6'>
+    
+    {favuser.map(function(u){
+        return <div className="bg-white flex flex-col items-center gap-6 p-5 rounded-xl shadow hover:shadow-lg transition cursor-pointer relative">
       <button className='absolute top-2 right-2'>
         <Star color="blue" fill="blue" size={20} />
       </button>
@@ -49,10 +49,10 @@ const Favorites = () => {
         }}
         className=' bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700'>return home</button>
     </div>
-    </div>
-    </div>
-    })
-
+  
+})}
+  </div>
+  </div>
   )
 }
 
