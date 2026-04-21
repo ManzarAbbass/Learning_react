@@ -29,9 +29,9 @@ const Favorites = () => {
         <Star color="blue" fill="blue" size={20} />
       </button>
       <div>
-        <h2>{favuser.name}</h2>
-        <p>{favuser.email}</p>
-        <p>{favuser?.address?.city}</p>
+        <h2>{u.name}</h2>
+        <p>{u.email}</p>
+        <p>{u?.address?.city}</p>
       </div>
       <button
         onClick={() => {
