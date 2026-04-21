@@ -1,18 +1,29 @@
-import { Star } from 'lucide-react';
 import { getUsers } from '../services/Services';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { Star } from 'lucide-react';
+
 const Favorites = () => {
   const favItem = JSON.parse(localStorage.getItem("favItem"))
-  
+  const [favuser, setFavUser] = useState([])
   useEffect(()=>{
     const fetchUsers = async ()=>{
       const data = await getUsers()
+      setFavUser(data.filter((u)=>{
+        if(favItem.includes(u.id)){
+          return true
+        }
+        }))
     }
+    fetchUsers()
   },[])
 
-
   return (
-    "Hello Favorites"
+    favuser.map((u)=>{
+      <div className=''>
+        <Star/>
+        <div></div>
+      </div>
+    })
   )
 }
 
