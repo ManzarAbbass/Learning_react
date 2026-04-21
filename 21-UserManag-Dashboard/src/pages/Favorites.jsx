@@ -20,13 +20,15 @@ const Favorites = () => {
     navigate("/")
   }
 
-  if (favuser.length === 0) return <div className=' flex flex-col items-center justify-center gap-4 bg-blue-200 border-2 border-solid border-gray-300 p-6 rounded-lg text-gray-700'>
+  if (favuser.length === 0) return <div className='min-h-screen flex items-center justify-center p-6'>
+    <div className=' flex flex-col items-center gap-4 bg-blue-200 border-2 border-solid border-gray-300 p-6 rounded-lg text-gray-700'>
   <h2 className=" font-bold text-xl">{"No Favorite User Found....."}  </h2>
   <p>{"Please Click on the Star Icon to Add Users to Favorites"}</p>
   <button onClick={goBackToUsers} className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
     return home
   </button>
   </div> 
+  </div>
   
   return (
     <div className="max-w-6xl mx-auto p-6">
