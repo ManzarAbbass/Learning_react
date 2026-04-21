@@ -1,11 +1,18 @@
 import { Star } from 'lucide-react';
+import { getUsers } from '../services/Services';
+import { useEffect } from 'react';
 const Favorites = () => {
+  const favItem = JSON.parse(localStorage.getItem("favItem"))
+  
+  useEffect(()=>{
+    const fetchUsers = async ()=>{
+      const data = await getUsers()
+    }
+  },[])
+
+
   return (
-    <div className="max-w-6xl mx-auto p-6">
-      
-      <h1>Favorite User <Star color='yellow' fill='yellow' /></h1>
-      
-    </div>
+    "Hello Favorites"
   )
 }
 
