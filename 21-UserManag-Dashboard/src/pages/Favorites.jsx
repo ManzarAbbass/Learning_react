@@ -19,13 +19,14 @@ const Favorites = () => {
 
   return (
     favuser.map((u)=>{
-      <div className=''>
+      <div className="bg-white flex flex-col items-center gap-6 p-5 rounded-xl shadow hover:shadow-lg transition cursor-pointer relative">
         <Star/>
         <div>
-          <h2></h2>
-          <p></p>
+          <h2>{u.name}</h2>
+          <p>{u.email}</p>
           <p></p>
         </div>
+        <button className=' bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700'>return home</button>
       </div>
     })
   )
