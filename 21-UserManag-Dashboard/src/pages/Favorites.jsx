@@ -21,7 +21,11 @@ const Favorites = () => {
     favuser.map((u)=>{
       <div className=''>
         <Star/>
-        <div></div>
+        <div>
+          <h2></h2>
+          <p></p>
+          <p></p>
+        </div>
       </div>
     })
   )
