@@ -24,6 +24,9 @@ const Favorites = () => {
   if (favuser.length === 0) return <h2 className="absolute top-[50%] left-[40%] font-bold text-xl">{"No Favorite User Found....."}</h2>
   return (
     favuser.map((u)=>{
+      return <div className="max-w-6xl mx-auto p-6">
+        <h2 className='text-center font-bold text-3xl border-blue-600 border-solid'>Favourites User</h2>
+          <div className='grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-6 m-6'>
           <div className="bg-white flex flex-col items-center gap-6 p-5 rounded-xl shadow hover:shadow-lg transition cursor-pointer relative">
       <button className='absolute top-2 right-2'>
         <Star color="blue" fill="blue" size={20} />
@@ -38,6 +41,8 @@ const Favorites = () => {
           goBackToUsers()
         }}
         className=' bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700'>return home</button>
+    </div>
+    </div>
     </div>
     })
 
