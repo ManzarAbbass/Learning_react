@@ -4,19 +4,17 @@ import { Star } from 'lucide-react';
 
 const Favorites = () => {
   const favItem = JSON.parse(localStorage.getItem("favItem"))
-  const [favuser, setFavUser] = useState([])
+  const [favuser, setFavUser] = useState(null)
   useEffect(()=>{
     const fetchUsers = async ()=>{
       const data = await getUsers()
-      setFavUser(data.filter((u)=>{
-        if(favItem.includes(u.id)){
-          return true
-        }
-        }))
+      const Users= data.filter((u)=>(favItem.includes(u.id)))
+      setFavUser(Users)
     }
     fetchUsers()
   },[])
 
+  if(!favuser) return <h2 className="absolute top-[50%] left-[40%] font-bold text-xl">{"Loading Fav User....."}</h2>
   return (
     favuser.map((u)=>{
       <div className="bg-white flex flex-col items-center gap-6 p-5 rounded-xl shadow hover:shadow-lg transition cursor-pointer relative">
