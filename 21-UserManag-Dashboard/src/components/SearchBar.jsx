@@ -3,11 +3,16 @@ import { Link } from "react-router-dom"
 
 const SearchBar = () => {
   const [value, setValue] = useState("")
+
+  const getInput = (eveObj)=>{
+    setValue(eveObj.target.value)
+  }
+  console.log(value)
   return (
     <div>
       <input 
       onChange={(eveObj)=>{
-        setValue(eveObj.target.value)
+        getInput(eveObj)
       }}
       className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
       type="text"
