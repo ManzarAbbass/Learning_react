@@ -10,19 +10,18 @@ const Navbar = () => {
 
   return (
     <>
-      {/* NAVBAR */}
       <div className="bg-blue-600 text-white flex justify-between items-center px-6 md:px-10 py-4">
         
-        {/* Logo */}
+
         <h2 className="font-bold text-lg">UserMang.</h2>
 
-        {/* Desktop Links */}
+
         <div className="hidden md:flex gap-8">
           <Link className="hover:underline" to="/">Users</Link>
           <Link className="hover:underline" to="/favorites">Favorites</Link>
         </div>
 
-        {/* Hamburger (Mobile) */}
+
         <button 
         onClick={()=>{
           toggleSidebar()
@@ -32,13 +31,13 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* OVERLAY (Mobile) */}
+
       <div className={`fixed inset-0 bg-black/40 z-40 ${isOpen ? "block" : "hidden"}`}></div>
 
-      {/* SIDEBAR */}
+
       <div className={`fixed top-0 left-[100] h-full w-64 bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300 ${isOpen ? "translate-x-0" : ""}`}>
         
-        {/* Close Button */}
+
         <div className="flex justify-end p-4">
           <button 
           onClick={()=>{
