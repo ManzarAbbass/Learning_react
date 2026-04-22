@@ -49,8 +49,8 @@ const Navbar = () => {
         </div>
 
         <div className="flex flex-col gap-6 px-6 mt-4 text-gray-700">
-          <Link to="/" className="hover:text-blue-600 hover:bg-gray-100 p-2 rounded">Users</Link>
-          <Link to="/favorites" className="hover:text-blue-600 hover:bg-gray-100 p-2 rounded">Favorites</Link>
+          <Link to="/" className="hover:text-white hover:bg-blue-600 p-2 rounded">Users</Link>
+          <Link to="/favorites" className="hover:text-white hover:bg-blue-600 p-2 rounded">Favorites</Link>
         </div>
       </div>
     </>
