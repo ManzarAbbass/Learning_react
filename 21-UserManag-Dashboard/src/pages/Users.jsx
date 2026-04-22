@@ -30,6 +30,8 @@ const Users = () => {
     fetchUsers()
   }, [])
 
+  const filteredUsers= users.filter((u) => u.name.toLowerCase().includes(value.toLowerCase()))
+
   return (
     <div className="max-w-6xl mx-auto p-6">
       <div className="mb-5">
@@ -37,7 +39,7 @@ const Users = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-6">
         {
-          users.map((u) => {
+          filteredUsers.map((u) => {
             return <UserCard key={u.id} user={u} fav={favorites.includes(u.id)} toggleFavorite={toggleFavorite}/>
           })
         }
