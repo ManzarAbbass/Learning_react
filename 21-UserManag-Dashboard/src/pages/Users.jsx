@@ -5,6 +5,11 @@ import { getUsers } from "../services/Services"
 const Users = () => {
   const [users, setUsers] = useState([])
   const [favorites, setFavorites] = useState([])
+  const [value, setValue] = useState("");
+
+  const getInput = (eveObj)=>{
+    setValue(eveObj)
+  }
 
   // localStorage.clear()
   localStorage.setItem("favItem", JSON.stringify(favorites))
@@ -28,7 +33,7 @@ const Users = () => {
   return (
     <div className="max-w-6xl mx-auto p-6">
       <div className="mb-5">
-        <SearchBar />
+        <SearchBar getInput={getInput} />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-6">
         {

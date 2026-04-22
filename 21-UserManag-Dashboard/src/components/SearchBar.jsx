@@ -1,13 +1,7 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 
-const SearchBar = () => {
-  const [value, setValue] = useState("")
-
-  const getInput = (eveObj)=>{
-    setValue(eveObj.target.value)
-  }
-  console.log(value)
+const SearchBar = ({ getInput }) => {
   return (
     <div>
       <input 
