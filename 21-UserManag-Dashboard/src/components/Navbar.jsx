@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleSidebar = ()=>{
+    setIsOpen(!isOpen)
+  }
+
   return (
     <>
       {/* NAVBAR */}
@@ -17,13 +23,17 @@ const Navbar = () => {
         </div>
 
         {/* Hamburger (Mobile) */}
-        <button className="md:hidden">
+        <button 
+        onClick={()=>{
+          toggleSidebar()
+        }}
+        className="md:hidden">
           <Menu size={28} />
         </button>
       </div>
 
       {/* OVERLAY (Mobile) */}
-      <div className="fixed inset-0 bg-black/40 z-40 hidden"></div>
+      <div className={`fixed inset-0 bg-black/40 z-40 ${isOpen ? "block" : "hidden"}`}></div>
 
       {/* SIDEBAR */}
       <div className="fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300">
@@ -35,7 +45,6 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Links */}
         <div className="flex flex-col gap-6 px-6 mt-4 text-gray-700">
           <Link to="/" className="hover:text-blue-600">Users</Link>
           <Link to="/favorites" className="hover:text-blue-600">Favorites</Link>
