@@ -8,7 +8,7 @@ const Users = () => {
   const [value, setValue] = useState("");
 
   const getInput = (eveObj)=>{
-    setValue(eveObj)
+    setValue(eveObj.target.value)
   }
 
   // localStorage.clear()
@@ -30,7 +30,6 @@ const Users = () => {
     fetchUsers()
   }, [])
 
-  console.log(value)
   return (
     <div className="max-w-6xl mx-auto p-6">
       <div className="mb-5">
