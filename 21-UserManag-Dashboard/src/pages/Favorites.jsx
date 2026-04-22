@@ -15,6 +15,12 @@ const Favorites = () => {
     fetchUsers()
   }, [])
 
+  function deleteItem(param){
+    setFavUser(favuser.filter((u)=>u.id !==param))
+    const newFavItem = favItem.filter((id)=>id !== param)
+    localStorage.setItem("favItem", JSON.stringify(newFavItem))
+  }
+
   const navigate = useNavigate();
   function goBackToUsers() {
     navigate("/")
@@ -36,8 +42,12 @@ const Favorites = () => {
     <div className='grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-6 m-6'>
     
     {favuser.map(function(u){
-        return <div className="bg-white flex flex-col items-center gap-6 p-5 rounded-xl shadow hover:shadow-lg transition cursor-pointer relative">
-      <button className='absolute top-2 right-2'>
+        return <div key={u.id} className="bg-white flex flex-col items-center gap-6 p-5 rounded-xl shadow hover:shadow-lg transition cursor-pointer relative">
+      <button 
+      onClick={()=>{
+        deleteItem(u.id)
+      }}
+      className='absolute top-2 right-2'>
         <Star color="blue" fill="blue" size={20} />
       </button>
       <div>
