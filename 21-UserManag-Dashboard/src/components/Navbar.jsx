@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { UsersRound } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,9 +13,10 @@ const Navbar = () => {
     <>
       <div className="bg-blue-600 text-white flex justify-between items-center px-6 md:px-10 py-4">
         
-
-        <h2 className="font-bold text-lg">UserMang.</h2>
-
+        <div className="flex items-center gap-2">
+        <UsersRound size={40}/>
+        <h2 className="font-bold text-lg">User-Management</h2>
+        </div>
 
         <div className="hidden md:flex gap-8">
           <Link className="hover:underline" to="/">Users</Link>
@@ -48,9 +50,14 @@ const Navbar = () => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-6 px-6 mt-4 text-gray-700">
-          <Link to="/" className="hover:text-white hover:bg-blue-600 p-2 rounded">Users</Link>
-          <Link to="/favorites" className="hover:text-white hover:bg-blue-600 p-2 rounded">Favorites</Link>
+        <div className="flex flex-col gap-4 px-6 mt-4 text-gray-700">
+          <Link to="/" className="block w-full p-3 rounded transition-all duration-200 
+               hover:bg-blue-600 hover:text-white 
+               active:bg-blue-700 active:text-white">Users</Link>
+               
+          <Link to="/favorites" className="block w-full p-3 rounded transition-all duration-200 
+               hover:bg-blue-600 hover:text-white 
+               active:bg-blue-700 active:text-white">Favorites</Link>
         </div>
       </div>
     </>
