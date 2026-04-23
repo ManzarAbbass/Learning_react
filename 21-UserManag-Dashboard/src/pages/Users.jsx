@@ -12,7 +12,15 @@ const Users = () => {
   }
 
   // localStorage.clear()
-  localStorage.setItem("favItem", JSON.stringify(favorites))
+  // localStorage.setItem("favItem", JSON.stringify(favorites))
+  useEffect(()=>{
+
+    setFavorites(JSON.parse(localStorage.getItem("favItem")))
+  },[]) 
+  useEffect(()=>{
+    localStorage.setItem("favItem", JSON.stringify(favorites))
+  },[favorites])
+
 
   const toggleFavorite = (userId) => {
     if (favorites.includes(userId)) {
