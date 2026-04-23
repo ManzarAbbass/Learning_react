@@ -6,20 +6,24 @@ const Users = () => {
   const [users, setUsers] = useState([])
   const [favorites, setFavorites] = useState([])
   const [value, setValue] = useState("");
+  const [debouncedSearchValue, setdebouncedSearchValue] = useState("")
 
   const getInput = (eveObj)=>{
     setValue(eveObj.target.value)
   }
-  // useEffect(()=>{
-  //    clearTimeout(timer)
-  //     setTimeout(() => {      
-  //     }, 1000);
-  // },[value])
+ useEffect(()=>{
+    const timer = setTimeout(() => {
+      setdebouncedSearchValue(value)
+    },1000)
+    return () => {
+      clearTimeout(timer)
+    }
+  },[value])
 
   // localStorage.clear()
   // localStorage.setItem("favItem", JSON.stringify(favorites))
   useEffect(()=>{
-    setFavorites(JSON.parse(localStorage.getItem("favItem") || []))
+    setFavorites(JSON.parse(localStorage.getItem("favItem") || "[]"))
   },[]) 
   useEffect(()=>{
     localStorage.setItem("favItem", JSON.stringify(favorites))
@@ -42,7 +46,7 @@ const Users = () => {
     fetchUsers()
   }, [])
 
-  const filteredUsers= users.filter((u) => u.name.toLowerCase().includes(value.toLowerCase()))
+  const filteredUsers= users.filter((u) => u.name.toLowerCase().includes(debouncedSearchValue.toLowerCase()))
 
   return (
     <div className="max-w-6xl mx-auto p-6">
