@@ -35,7 +35,7 @@ const Navbar = () => {
       <div className={`fixed inset-0 bg-black/40 z-40 ${isOpen ? "block" : "hidden"}`}></div>
 
 
-      <div className={`fixed top-0 left-[100] h-full w-64 bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300 ${isOpen ? "translate-x-0" : ""}`}>
+      <div className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300 ${isOpen ? "translate-x-0" : ""}`}>
         
 
         <div className="flex justify-end p-4">
