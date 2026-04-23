@@ -35,7 +35,7 @@ const UserDetail = () => {
           goBackToUsers()
         }}
         className="mt-3 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
-          Go Back
+          return home
         </button>
         </div>
     </div>
