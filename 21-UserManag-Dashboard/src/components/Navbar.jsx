@@ -15,7 +15,7 @@ const Navbar = () => {
         
         <div className="flex items-center gap-2">
         <UsersRound size={40}/>
-        <h2 className="font-bold text-lg">User-Management</h2>
+        <h2 className="font-bold text-lg">Dev-Connect.</h2>
         </div>
 
         <div className="hidden md:flex gap-8">
