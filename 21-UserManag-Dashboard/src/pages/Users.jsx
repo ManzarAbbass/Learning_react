@@ -10,12 +10,16 @@ const Users = () => {
   const getInput = (eveObj)=>{
     setValue(eveObj.target.value)
   }
+  // useEffect(()=>{
+  //    clearTimeout(timer)
+  //     setTimeout(() => {      
+  //     }, 1000);
+  // },[value])
 
   // localStorage.clear()
   // localStorage.setItem("favItem", JSON.stringify(favorites))
   useEffect(()=>{
-
-    setFavorites(JSON.parse(localStorage.getItem("favItem")))
+    setFavorites(JSON.parse(localStorage.getItem("favItem") || []))
   },[]) 
   useEffect(()=>{
     localStorage.setItem("favItem", JSON.stringify(favorites))
