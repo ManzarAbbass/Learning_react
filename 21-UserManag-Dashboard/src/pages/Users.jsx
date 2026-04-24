@@ -8,26 +8,26 @@ const Users = () => {
   const [value, setValue] = useState("");
   const [debouncedSearchValue, setdebouncedSearchValue] = useState("")
 
-  const getInput = (eveObj)=>{
+  const getInput = (eveObj) => {
     setValue(eveObj.target.value)
   }
- useEffect(()=>{
+  useEffect(() => {
     const timer = setTimeout(() => {
       setdebouncedSearchValue(value)
-    },1000)
+    }, 1000)
     return () => {
       clearTimeout(timer)
     }
-  },[value])
+  }, [value])
 
   // localStorage.clear()
   // localStorage.setItem("favItem", JSON.stringify(favorites))
-  useEffect(()=>{
+  useEffect(() => {
     setFavorites(JSON.parse(localStorage.getItem("favItem") || "[]"))
-  },[]) 
-  useEffect(()=>{
+  }, [])
+  useEffect(() => {
     localStorage.setItem("favItem", JSON.stringify(favorites))
-  },[favorites])
+  }, [favorites])
 
 
   const toggleFavorite = (userId) => {
@@ -46,17 +46,18 @@ const Users = () => {
     fetchUsers()
   }, [])
 
-  const filteredUsers= users.filter((u) => u.name.toLowerCase().includes(debouncedSearchValue.toLowerCase()))
+  const filteredUsers = users.filter((u) => u.name.toLowerCase().includes(debouncedSearchValue.toLowerCase()))
 
   return (
     <div className="max-w-6xl mx-auto p-6">
-      <div className="mb-5">
+      <div className="mb-6">
         <SearchBar getInput={getInput} value={value} />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-6">
+
+      <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-8">
         {
           filteredUsers.map((u) => {
-            return <UserCard key={u.id} user={u} fav={favorites.includes(u.id)} toggleFavorite={toggleFavorite}/>
+            return <UserCard key={u.id} user={u} fav={favorites.includes(u.id)} toggleFavorite={toggleFavorite} />
           })
         }
       </div>

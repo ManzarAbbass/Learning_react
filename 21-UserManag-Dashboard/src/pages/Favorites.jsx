@@ -59,12 +59,12 @@ const Favorites = () => {
         {favuser.map((u) => (
           <div
             key={u.id}
-            className="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden relative">
+            className="bg-slate-800 border border-slate-700 rounded-xl shadow hover:shadow-lg transition">
 
             {/* Remove Favorite */}
             <button
               onClick={() => deleteItem(u.id)}
-              className="absolute top-3 right-3 bg-white p-1 rounded-full shadow">
+              className="absolute top-3 right-3 bg-slate-900/80 p-1 rounded-full shadow">
               <Star color="blue" fill="blue" size={20} />
             </button>
 

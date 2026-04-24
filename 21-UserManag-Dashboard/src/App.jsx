@@ -6,12 +6,12 @@ import UserDetail from "./pages/UserDetail"
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-slate-900 text-gray-200">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Users/>}/>
-        <Route path="/userdetail/:id" element={<UserDetail/>}/>
-        <Route path="/favorites" element={<Favorites/>}/>
+        <Route path="/" element={<Users />} />
+        <Route path="/userdetail/:id" element={<UserDetail />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </div>
   )
