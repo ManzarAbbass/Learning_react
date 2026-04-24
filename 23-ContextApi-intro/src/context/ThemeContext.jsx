@@ -1,7 +1,12 @@
+import { createContext } from "react"
+
+export const ThemeDataContext =createContext()
 const ThemeContext = (props) => {
   return (
     <div>
-      {props.children}
+     <ThemeDataContext.Provider value="Creative Digital">
+         {props.children}
+     </ThemeDataContext.Provider>
     </div>
   )
 }
