@@ -1,10 +1,11 @@
 import React from 'react'
+import ExpenseContext from './context/ExpenseContext'
 
 const App = () => {
   return (
-    <div>
+    <ExpenseContext>
       
-    </div>
+    </ExpenseContext>
   )
 }
 
