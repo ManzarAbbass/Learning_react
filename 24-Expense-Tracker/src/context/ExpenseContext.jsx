@@ -1,8 +1,12 @@
+import { useContext } from "react"
 
-const ExpenseContext = () => {
+export const expenseContextData = useContext()
+const ExpenseContext = (Props) => {
   return (
     <div>
-      
+      <expenseContextData.Provider value={ }>
+      {Props.children}
+      </expenseContextData.Provider>
     </div>
   )
 }
