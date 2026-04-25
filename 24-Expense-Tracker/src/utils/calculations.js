@@ -1,4 +1,4 @@
-const calculateIncome = (transactions) => {
+export const calculateIncome = (transactions) => {
     let Income = 0;
     transactions.forEach((item) => {
         if(item.type==="income"){
@@ -9,7 +9,7 @@ const calculateIncome = (transactions) => {
 }
 
 
-const calculateExpense = (transactions) => {
+export const calculateExpense = (transactions) => {
     let Expense = 0;
     transactions.forEach((item) => {
         if(item.type==="expense"){
@@ -19,6 +19,6 @@ const calculateExpense = (transactions) => {
     return Expense;
 }
 
-const calculateBalance = () => {
-    return calculateIncome(transaction)-calculateExpense(transactions)
+export const calculateBalance = (transactions) => {
+    return calculateIncome(transactions)-calculateExpense(transactions)
 }
