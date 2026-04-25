@@ -1,14 +1,27 @@
-import { useContext } from "react"
+import { createContext, useEffect, useState } from "react"
 
-export const expenseContextData = useContext()
+export const expenseContextData = createContext
 const ExpenseContext = (Props) => {
-  return (
-    <div>
-      <expenseContextData.Provider value={ }>
+  const dataStore=localStorage.getItem("transaction" || [])
+  const [transaction, settransaction] = useState(JSON.parse(dataStore))
+  useEffect(()=>{
+    localStorage.setItem("transactions",JSON.stringify(transaction))
+  },[transaction])
+
+  const addTransaction=(newTransaction)=>{
+    transaction.push(newTransaction)
+    localStorage.setItem("transaction",JSON.stringify(transaction))
+  }
+
+  const deleteTransaction=(id)=>{
+    settransaction(transaction.filter((obj,index)=>(index !==id)))
+    }
+    return (
+      <expenseContextData.Provider value={ transaction,addTransaction,deleteTransaction}>
       {Props.children}
       </expenseContextData.Provider>
-    </div>
   )
 }
+
 
 export default ExpenseContext
