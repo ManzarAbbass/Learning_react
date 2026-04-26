@@ -4,9 +4,8 @@ import { expenseContextData } from "../context/ExpenseContext"
 import { calculateBalance,calculateExpense,calculateIncome } from "../utils/calculations" 
 
 
-const Balance = () => {
+const Balance = ({ setForm }) => {
   const {transaction}= useContext(expenseContextData)
-  const [form, setForm] = useState(false)
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="p-12 flex flex-col gap-4 items-center justify-between">
