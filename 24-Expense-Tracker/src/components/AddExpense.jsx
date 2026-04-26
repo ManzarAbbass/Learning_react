@@ -41,7 +41,7 @@ const AddExpense = ({ form, setForm }) => {
             setCategory(e.target.value)
           }}
           className="w-full bg-[#1a1530] border border-[#2e2550] rounded-lg px-4 py-2.5 text-[#e2e0f0] text-sm outline-none">
-          <option value="">Select category</option>
+          <option value="" >Select category</option>
           {type === "Income" ?
             (
               <>

@@ -8,7 +8,7 @@ const App = () => {
   return (
     <ExpenseContext>
       <Balance form={form} setForm={setForm}/>
-      {form && <AddExpense form={ form } />}
+      {form && <AddExpense setForm={setForm} form={form} />}
     </ExpenseContext>
   )
 }
