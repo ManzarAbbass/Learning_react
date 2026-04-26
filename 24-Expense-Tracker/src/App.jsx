@@ -7,8 +7,8 @@ const App = () => {
   const [form, setForm] = useState(false)
   return (
     <ExpenseContext>
-      <Balance setForm={setForm}/>
-      {form && <AddExpense form={ form }/>}
+      <Balance form={form} setForm={setForm}/>
+      {form && <AddExpense form={ form } />}
     </ExpenseContext>
   )
 }

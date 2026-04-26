@@ -4,10 +4,10 @@ import { expenseContextData } from "../context/ExpenseContext"
 import { calculateBalance,calculateExpense,calculateIncome } from "../utils/calculations" 
 
 
-const Balance = ({ setForm }) => {
+const Balance = ({form, setForm }) => {
   const {transaction}= useContext(expenseContextData)
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div className={`flex items-center justify-center h-screen ${form ? 'hidden' : 'block'}`}>
       <div className="p-12 flex flex-col gap-4 items-center justify-between">
         <div className="flex flex-col items-center">
           <h2 className="text-4xl font-bold">Total Balance</h2>
