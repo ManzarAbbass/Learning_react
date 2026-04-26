@@ -1,13 +1,24 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { expenseContextData } from "../context/ExpenseContext";
 
 const AddExpense = ({ form, setForm }) => {
+  const {transaction}= useContext(expenseContextData)
   const [type, setType] = useState("Income")
   const [category, setCategory] = useState("");
+  const [amount, setAmount] = useState("");
+  const [date, setDate] = useState("");
   return (
     <div className="h-screen flex items-center justify-center bg-brand-bg">
       <form onSubmit={(e) => {
         e.preventDefault();
         // Handle form submission
+        transaction.push({
+          id: transaction.length + 1,
+          type,
+          category,
+          amount: parseFloat(amount),
+          date
+        })
       }}
         className="bg-[#110e24] border border-[#1e1a35] rounded-xl p-8 flex flex-col gap-4 w-full max-w-md">
         <h2 className="text-white text-xl font-medium">Add Transaction</h2>
@@ -53,13 +64,22 @@ const AddExpense = ({ form, setForm }) => {
 
         <p className="text-[#4a4270] text-xs uppercase tracking-widest">Amount</p>
         <input
+          onChange={(e) => {
+            setAmount(e.target.value)
+          }}
           type="number"
           placeholder="Rs.0.00"
           min={0}
+          value={amount}
           className="w-full bg-[#1a1530] border border-[#2e2550] rounded-lg px-4 py-2.5 text-[#e2e0f0] text-sm outline-none"
         />
         <p className="text-[#4a4270] text-xs uppercase tracking-widest">Date</p>
-        <input type="date" id="date" name="date"
+        <input
+          onChange={(e) => {
+            setDate(e.target.value)
+          }}
+          value={date}
+          type="date" id="date" name="date"
           className="w-full bg-[#1a1530] border border-[#2e2550] rounded-lg px-4 py-2.5 text-[#e2e0f0] text-sm outline-none"
         />
 
