@@ -1,5 +1,5 @@
 
-const AddExpense = () => {
+const AddExpense = ({ form }) => {
   return (
     <form  className={`flex flex-col gap-4 items-center justify-center ${form ? 'block' : 'hidden'}`}>
       <h2>Add Transaction</h2>
