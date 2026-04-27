@@ -2,21 +2,22 @@ import { useContext, useState } from "react";
 import { expenseContextData } from "../context/ExpenseContext";
 
 const AddExpense = ({ form, setForm }) => {
-  const { transaction } = useContext(expenseContextData)
+  const { addTransaction } = useContext(expenseContextData)
   const [type, setType] = useState("Income")
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
 
-  const formData = () => {
-    transaction.push({
-      id: transaction.length + 1,
-      type: type,
-      category: category,
+  const AddTransaction = () => {
+    const newTransaction = {
+      id: Date.now(),
+      type: type.toLowerCase(),
+      category:category,
       amount: parseFloat(amount),
       date: date
-    })
   }
+  addTransaction(newTransaction)
+}
   return (
     <div className="h-screen flex items-center justify-center bg-brand-bg">
       <form onSubmit={(e) => {
@@ -89,7 +90,7 @@ const AddExpense = ({ form, setForm }) => {
 
         <button
           onClick={() => {
-            formData();
+            AddTransaction();
           }}
           className="bg-amber-400 p-2 rounded text-white hover:bg-amber-200">Add Transaction</button>
         <button
