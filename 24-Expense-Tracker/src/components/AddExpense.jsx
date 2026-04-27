@@ -2,23 +2,26 @@ import { useContext, useState } from "react";
 import { expenseContextData } from "../context/ExpenseContext";
 
 const AddExpense = ({ form, setForm }) => {
-  const {transaction}= useContext(expenseContextData)
+  const { transaction } = useContext(expenseContextData)
   const [type, setType] = useState("Income")
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
+
+  const formData = () => {
+    transaction.push({
+      id: transaction.length + 1,
+      type: type,
+      category: category,
+      amount: parseFloat(amount),
+      date: date
+    })
+  }
   return (
     <div className="h-screen flex items-center justify-center bg-brand-bg">
       <form onSubmit={(e) => {
         e.preventDefault();
-        // Handle form submission
-        transaction.push({
-          id: transaction.length + 1,
-          type,
-          category,
-          amount: parseFloat(amount),
-          date
-        })
+        // Handle form submission here, such as sending data to an API or updating state
       }}
         className="bg-[#110e24] border border-[#1e1a35] rounded-xl p-8 flex flex-col gap-4 w-full max-w-md">
         <h2 className="text-white text-xl font-medium">Add Transaction</h2>
@@ -41,7 +44,7 @@ const AddExpense = ({ form, setForm }) => {
             setCategory(e.target.value)
           }}
           className="w-full bg-[#1a1530] border border-[#2e2550] rounded-lg px-4 py-2.5 text-[#e2e0f0] text-sm outline-none">
-          <option value="" >Select category</option>
+          <option value={type} >Select category</option>
           {type === "Income" ?
             (
               <>
@@ -85,6 +88,9 @@ const AddExpense = ({ form, setForm }) => {
 
 
         <button
+          onClick={() => {
+            formData();
+          }}
           className="bg-amber-400 p-2 rounded text-white hover:bg-amber-200">Add Transaction</button>
         <button
           className="bg-gray-400 p-2 rounded text-white hover:bg-gray-200"
