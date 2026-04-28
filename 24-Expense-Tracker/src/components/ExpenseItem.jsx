@@ -1,9 +1,13 @@
+import { Trash } from "lucide-react"
 const ExpenseItem = ({ item }) => {
+  console.log(item)
   return (
+    <div className="bg-red-400">
     <ul>
-      <li>{item}</li>
+      <li>{item.type}</li>
     </ul>
-    <button></button>
+    <button><Trash size={20}/></button>
+    </div>
   )
 }
 

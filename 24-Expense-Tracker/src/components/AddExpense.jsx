@@ -10,7 +10,7 @@ const AddExpense = ({ form, setForm }) => {
 
   const AddTransaction = () => {
     const newTransaction = {
-      id: Date.now(),
+      id:Date.now(),
       type: type.toLowerCase(),
       category:category,
       amount: parseFloat(amount),
