@@ -7,19 +7,19 @@ import { calculateBalance,calculateExpense,calculateIncome } from "../utils/calc
 const Balance = ({form, setForm }) => {
   const {transaction}= useContext(expenseContextData)
   return (
-    <div className={`flex items-center justify-center h-screen ${form ? 'hidden' : 'block'}`}>
+    <div className={`flex items-center justify-center ${form ? 'hidden' : 'block'} bg-amber-500`}>
       <div className="p-12 flex flex-col gap-4 items-center justify-between">
         <div className="flex flex-col items-center">
           <h2 className="text-4xl font-bold">Total Balance</h2>
-          <p className="text-2xl font-bold">{calculateBalance(transaction)}</p>
+          <p className="text-2xl font-bold">{`Rs. ${calculateBalance(transaction).toFixed(2)}`}</p>
         </div>
         <div className="flex flex-col items-center">
           <h2 className="text-4xl font-bold">Income</h2>
-          <p className="text-2xl font-bold">{calculateIncome(transaction)}</p>
+          <p className="text-2xl font-bold">{`Rs. ${calculateIncome(transaction).toFixed(2)}`}</p>
         </div>
         <div className="flex flex-col items-center">
           <h2 className="text-4xl font-bold">Expense</h2>
-          <p className="text-2xl font-bold">{calculateExpense(transaction)}</p>
+          <p className="text-2xl font-bold">{`Rs. ${calculateExpense(transaction).toFixed(2)}`}</p>
         </div>
         <div className="flex flex-col items-center">
           <p className={`border-s-olive-50 ${transaction.length === 0 ? 'block' : 'hidden'}`}>No transaction yet</p>
@@ -28,7 +28,7 @@ const Balance = ({form, setForm }) => {
         onClick={()=>{
           setForm(true)
         }}
-        className="bg-amber-400 p-2 rounded text-white hover:bg-amber-200">Add Transaction</button>
+        className="bg-amber-400 p-2 rounded text-white hover:bg-amber-200 cursor-pointer">Add Transaction</button>
       </div>
     </div>
   )

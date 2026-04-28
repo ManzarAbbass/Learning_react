@@ -19,7 +19,7 @@ const AddExpense = ({ form, setForm }) => {
   addTransaction(newTransaction)
 }
   return (
-    <div className="h-screen flex items-center justify-center bg-brand-bg">
+    <div className=" flex items-center justify-center bg-brand-bg">
       <form onSubmit={(e) => {
         e.preventDefault();
         // Handle form submission here, such as sending data to an API or updating state
@@ -84,7 +84,7 @@ const AddExpense = ({ form, setForm }) => {
           }}
           value={date}
           type="date" id="date" name="date"
-          className="w-full bg-[#1a1530] border border-[#2e2550] rounded-lg px-4 py-2.5 text-[#e2e0f0] text-sm outline-none"
+          className="w-full bg-[#1a1530] border border-[#2e2550] rounded-lg px-4 py-2.5 text-[#e2e0f0] text-sm outline-none cursor-pointer"
         />
 
 
@@ -92,9 +92,9 @@ const AddExpense = ({ form, setForm }) => {
           onClick={() => {
             AddTransaction();
           }}
-          className="bg-amber-400 p-2 rounded text-white hover:bg-amber-200">Add Transaction</button>
+          className="bg-amber-400 p-2 rounded text-white hover:bg-amber-200 cursor-pointer">Add Transaction</button>
         <button
-          className="bg-gray-400 p-2 rounded text-white hover:bg-gray-200"
+          className="bg-gray-400 p-2 rounded text-white hover:bg-gray-200 cursor-pointer"
           onClick={() => {
             setForm(false);
           }}
