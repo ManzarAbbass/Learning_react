@@ -1,9 +1,9 @@
 import { Trash } from "lucide-react"
-const ExpenseItem = ({ item, key }) => {
+const ExpenseItem = ({ item}) => {
   console.log(item)
   return (
-    <div key={key} className="bg-red-400">
-    <ul className="flex">
+    <div  className="bg-red-400">
+    <ul className="flex gap-2">
       <li>{item.id}</li>
       <li>{item.type}</li>
       <li>{item.category}</li>
