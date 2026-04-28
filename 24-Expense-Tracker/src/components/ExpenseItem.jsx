@@ -1,8 +1,9 @@
 const ExpenseItem = ({ item }) => {
   return (
     <ul>
-      <li>{}</li>
+      <li>{item}</li>
     </ul>
+    <button></button>
   )
 }
 
