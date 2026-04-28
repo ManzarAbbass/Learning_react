@@ -1,8 +1,8 @@
-const ExpenseItem = ({ transaction }) => {
+const ExpenseItem = ({ item }) => {
   return (
-    <div className="">
-      
-    </div>
+    <ul>
+      <li>{}</li>
+    </ul>
   )
 }
 
