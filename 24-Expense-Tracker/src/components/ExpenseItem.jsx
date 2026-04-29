@@ -1,4 +1,7 @@
 import { Trash } from "lucide-react"
+import { useContext } from "react"
+import { expenseContextData } from "../context/ExpenseContext"
+
 const ExpenseItem = ({ item}) => {
   const { deleteTransaction } = useContext(expenseContextData)
   return (
