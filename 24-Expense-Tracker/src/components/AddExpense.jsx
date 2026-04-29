@@ -68,17 +68,19 @@ const AddExpense = ({ form, setForm }) => {
 
         <p className="text-[#4a4270] text-xs uppercase tracking-widest">Amount</p>
         <input
+        required
           onChange={(e) => {
             setAmount(e.target.value)
           }}
           type="number"
           placeholder="Rs.0.00"
-          min={0}
+          min={1}
           value={amount}
           className="w-full bg-[#1a1530] border border-[#2e2550] rounded-lg px-4 py-2.5 text-[#e2e0f0] text-sm outline-none"
         />
         <p className="text-[#4a4270] text-xs uppercase tracking-widest">Date</p>
         <input
+        required
           onChange={(e) => {
             setDate(e.target.value)
           }}
