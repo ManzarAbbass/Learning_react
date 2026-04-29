@@ -5,7 +5,7 @@ const ExpenseContext = (Props) => {
   const dataStore=localStorage.getItem("transaction")
   const [transaction, settransaction] = useState(dataStore?JSON.parse(dataStore): [])
   useEffect(()=>{
-    localStorage.setItem("transactions",JSON.stringify(transaction))
+    localStorage.setItem("transaction",JSON.stringify(transaction))
   },[transaction])
 
   const addTransaction=(newTransaction)=>{

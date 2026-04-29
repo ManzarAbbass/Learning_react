@@ -93,6 +93,7 @@ const AddExpense = ({ form, setForm }) => {
         <button
           onClick={() => {
             AddTransaction();
+            setForm(false)
           }}
           className="bg-amber-400 p-2 rounded text-white hover:bg-amber-200 cursor-pointer">Add Transaction</button>
         <button
