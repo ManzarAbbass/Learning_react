@@ -2,111 +2,145 @@ import { useContext, useState } from "react";
 import { expenseContextData } from "../context/ExpenseContext";
 
 const AddExpense = ({ form, setForm }) => {
-  const { addTransaction } = useContext(expenseContextData)
-  const [type, setType] = useState("Income")
+  const { addTransaction } = useContext(expenseContextData);
+  const [type, setType] = useState("Income");
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
 
-  const AddTransaction = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!category || !amount || !date) return alert("Please fill all fields");
+
     const newTransaction = {
-      id:Date.now(),
+      id: Date.now(),
       type: type.toLowerCase(),
-      category:category,
+      category: category,
       amount: parseFloat(amount),
-      date: date
-  }
-  addTransaction(newTransaction)
-}
+      date: date,
+    };
+
+    addTransaction(newTransaction);
+    setForm(false); // Form close karne ke liye
+  };
+
+  if (!form) return null;
+
   return (
-    <div className=" flex items-center justify-center bg-brand-bg">
-      <form onSubmit={(e) => {
-        e.preventDefault();
-        // Handle form submission here, such as sending data to an API or updating state
-      }}
-        className="bg-[#110e24] border border-[#1e1a35] rounded-xl p-8 flex flex-col gap-4 w-full max-w-md">
-        <h2 className="text-white text-xl font-medium">Add Transaction</h2>
-        <p className="text-[#4a4270] text-xs uppercase tracking-widest">Type</p>
-        <div className="flex bg-[#1a1530] rounded-full p-1 border border-[#2e2550]">
-          <button
-            onClick={() => {
-              setType("Income")
-            }}
-            className="flex-1 py-2 rounded-full bg-brand-accent text-white text-sm border-solid-[#2e2550]">Income</button>
-          <button
-            onClick={() => {
-              setType("Expense")
-            }}
-            className="flex-1 py-2 rounded-full bg-brand-accent text-white text-sm border-solid-[#2e2550]">Expense</button>
+    <div className="fixed inset-0 bg-[#1a1040]/20 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+      <form 
+        onSubmit={handleSubmit}
+        className="bg-white border border-[#e8e4f8] rounded-2xl p-7 flex flex-col gap-5 w-full max-w-md shadow-xl"
+      >
+        <div className="flex justify-between items-center">
+          <h2 className="text-xl font-bold text-[#1a1040]">Add Transaction</h2>
+          <button 
+            type="button" 
+            onClick={() => setForm(false)}
+            className="text-[#9991c4] hover:text-[#1a1040]"
+          >
+            ✕
+          </button>
         </div>
-        <p className="text-[#4a4270] text-xs uppercase tracking-widest">Category</p>
-        <select
-          onChange={(e) => {
-            setCategory(e.target.value)
-          }}
-          className="w-full bg-[#1a1530] border border-[#2e2550] rounded-lg px-4 py-2.5 text-[#e2e0f0] text-sm outline-none">
-          <option value={type} >Select category</option>
-          {type === "Income" ?
-            (
+
+        {/* Type Toggle */}
+        <div>
+          <p className="text-[10px] text-[#9991c4] uppercase tracking-[0.15em] mb-2 font-bold">Transaction Type</p>
+          <div className="flex bg-[#f8f7ff] rounded-xl p-1 border border-[#e8e4f8]">
+            <button
+              type="button"
+              onClick={() => setType("Income")}
+              className={`flex-1 py-2 rounded-lg text-sm font-medium transition-all ${
+                type === "Income" ? "bg-[#7c3aed] text-white shadow-md" : "text-[#9991c4]"
+              }`}
+            >
+              Income
+            </button>
+            <button
+              type="button"
+              onClick={() => setType("Expense")}
+              className={`flex-1 py-2 rounded-lg text-sm font-medium transition-all ${
+                type === "Expense" ? "bg-[#7c3aed] text-white shadow-md" : "text-[#9991c4]"
+              }`}
+            >
+              Expense
+            </button>
+          </div>
+        </div>
+
+        {/* Category Select */}
+        <div>
+          <p className="text-[10px] text-[#9991c4] uppercase tracking-[0.15em] mb-2 font-bold">Category</p>
+          <select
+            required
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="w-full bg-[#f8f7ff] border border-[#e8e4f8] rounded-xl px-4 py-3 text-[#1a1040] text-sm outline-none focus:border-[#7c3aed] transition-colors appearance-none"
+          >
+            <option value="">Select Category</option>
+            {type === "Income" ? (
               <>
                 <option value="Salary">Salary</option>
                 <option value="Freelance">Freelance</option>
                 <option value="Business">Business</option>
-                <option value="Investment">Investment</option>
                 <option value="Other">Other</option>
               </>
-            ) : (<>
-              <option value="Food">Food</option>
-              <option value="Transport">Transport</option>
-              <option value="Shopping">Shopping</option>
-              <option value="Bills">Bills</option>
-              <option value="Health">Health</option>
-              <option value="Other">Other</option>
-            </>
+            ) : (
+              <>
+                <option value="Food">Food</option>
+                <option value="Transport">Transport</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Bills">Bills</option>
+                <option value="Other">Other</option>
+              </>
             )}
-        </select>
+          </select>
+        </div>
 
-        <p className="text-[#4a4270] text-xs uppercase tracking-widest">Amount</p>
-        <input
-        required
-          onChange={(e) => {
-            setAmount(e.target.value)
-          }}
-          type="number"
-          placeholder="Rs.0.00"
-          min={1}
-          value={amount}
-          className="w-full bg-[#1a1530] border border-[#2e2550] rounded-lg px-4 py-2.5 text-[#e2e0f0] text-sm outline-none"
-        />
-        <p className="text-[#4a4270] text-xs uppercase tracking-widest">Date</p>
-        <input
-        required
-          onChange={(e) => {
-            setDate(e.target.value)
-          }}
-          value={date}
-          type="date" id="date" name="date"
-          className="w-full bg-[#1a1530] border border-[#2e2550] rounded-lg px-4 py-2.5 text-[#e2e0f0] text-sm outline-none cursor-pointer"
-        />
+        {/* Amount Input */}
+        <div>
+          <p className="text-[10px] text-[#9991c4] uppercase tracking-[0.15em] mb-2 font-bold">Amount</p>
+          <input
+            required
+            type="number"
+            placeholder="0.00"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            className="w-full bg-[#f8f7ff] border border-[#e8e4f8] rounded-xl px-4 py-3 text-[#1a1040] text-sm outline-none focus:border-[#7c3aed] transition-colors"
+          />
+        </div>
 
+        {/* Date Input */}
+        <div>
+          <p className="text-[10px] text-[#9991c4] uppercase tracking-[0.15em] mb-2 font-bold">Date</p>
+          <input
+            required
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            className="w-full bg-[#f8f7ff] border border-[#e8e4f8] rounded-xl px-4 py-3 text-[#1a1040] text-sm outline-none focus:border-[#7c3aed] transition-colors"
+          />
+        </div>
 
-        <button
-          onClick={() => {
-            AddTransaction();
-            setForm(false)
-          }}
-          className="bg-amber-400 p-2 rounded text-white hover:bg-amber-200 cursor-pointer">Add Transaction</button>
-        <button
-          className="bg-gray-400 p-2 rounded text-white hover:bg-gray-200 cursor-pointer"
-          onClick={() => {
-            setForm(false);
-          }}
-        >
-          Cancel
-        </button>
+        {/* Actions */}
+        <div className="flex gap-3 mt-2">
+          <button
+            type="submit"
+            className="flex-[2] bg-[#7c3aed] text-white rounded-xl py-3 text-sm font-medium hover:opacity-90 transition-opacity shadow-lg shadow-purple-200"
+          >
+            Add Transaction
+          </button>
+          <button
+            type="button"
+            onClick={() => setForm(false)}
+            className="flex-1 bg-[#f8f7ff] text-[#9991c4] border border-[#e8e4f8] rounded-xl py-3 text-sm font-medium hover:bg-red-50 hover:text-red-500 hover:border-red-100 transition-all"
+          >
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default AddExpense
+export default AddExpense;

@@ -8,13 +8,13 @@ const App = () => {
   const [form, setForm] = useState(false)
   return (
     <ExpenseContext>
-        <div className="min-h-screen bg-brand-bg">
-    <div className="max-w-xl mx-auto px-4 py-8 flex flex-col gap-6">
-      <Balance form={form} setForm={setForm}/>
-      {form && <AddExpense setForm={setForm} form={form} />}
-      <ExpenseList />
-    </div>
-    </div>
+      <div className="min-h-screen bg-[#f8f7ff]">
+        <div className="max-w-xl mx-auto px-4 py-6 sm:py-10">
+          <Balance form={form} setForm={setForm} />
+          {form && <AddExpense setForm={setForm} form={form} />}
+          <ExpenseList />
+        </div>
+      </div>
     </ExpenseContext>
   )
 }

@@ -7,20 +7,30 @@ const ExpenseList = () => {
 
     if (transaction.length === 0) {
         return (
-            <div className="text-center mt-8">
-                <p className="text-2xl font-bold">No transactions yet</p>
+            <div className="bg-white border border-[#e8e4f8] rounded-2xl p-10 text-center mt-6">
+                <p className="text-[#9991c4] text-sm font-medium italic">No transactions recorded yet.</p>
             </div>
         )
     }
+
     return (
-        <div className="bg-black">
-            <h2 className="text-2xl font-bold text-white mb-4 align-middle">Transaction List</h2>
-            {transaction.map((item, index) => {
-                return <div key={index}>
-                    <ExpenseItem item={item} />
-                </div>
-            })
-            }
+        <div className="mt-8">
+            {/* Header section matching Balance style */}
+            <div className="flex justify-between items-center mb-4 px-2">
+                <h2 className="text-xs text-[#9991c4] uppercase tracking-[0.2em] font-bold">
+                    Recent Transactions
+                </h2>
+                <span className="text-[10px] bg-[#f8f7ff] text-[#7c3aed] px-2 py-1 rounded-full font-bold border border-[#e8e4f8]">
+                    {transaction.length} Total
+                </span>
+            </div>
+
+            {/* Transaction Items Container */}
+            <div className="flex flex-col gap-3">
+                {transaction.map((item) => (
+                    <ExpenseItem key={item.id} item={item} />
+                ))}
+            </div>
         </div>
     )
 }
