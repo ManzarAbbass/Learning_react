@@ -14,7 +14,7 @@ const ExpenseList = () => {
     }
     return (
         <div className="bg-black">
-            <h2 className="text-2xl font-bold text-white mb-4">Transaction List</h2>
+            <h2 className="text-2xl font-bold text-white mb-4 align-middle">Transaction List</h2>
             {transaction.map((item, index) => {
                 return <div key={index}>
                     <ExpenseItem item={item} />
