@@ -44,7 +44,9 @@ const uniqueCategories = Array.from(
             {/* Transaction Items Container */}
             <div className="flex flex-col gap-3">
                 {transaction.map((item) => (
-                    <ExpenseItem key={item.id} item={item} />
+                    if(item.category===filter){
+                        <ExpenseItem key={item.id} item={item} />
+                    }
                 ))}
             </div>
         </div>
