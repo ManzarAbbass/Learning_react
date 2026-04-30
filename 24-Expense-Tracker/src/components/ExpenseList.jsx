@@ -14,9 +14,9 @@ const ExpenseList = () => {
         )
     }
 
-const uniqueCategories = Array.from(
-  new Set(transaction.map((item) => item.category))
-)
+    const uniqueCategories = Array.from(
+        new Set(transaction.map((item) => item.category))
+    )
 
     return (
         <div className="mt-8">
@@ -25,14 +25,14 @@ const uniqueCategories = Array.from(
                 <h2 className="text-xs text-[#9991c4] uppercase tracking-[0.2em] font-bold">
                     Recent Transactions
                 </h2>
-                <select 
-                onChange={(e)=>{
-                    setFilter(e.target.value)
-                }}
-                className="bg-white border border-[#e8e4f8] text-[#1a1040] text-[11px] font-bold uppercase tracking-wider rounded-lg px-3 py-1.5 outline-none focus:border-[#7c3aed] cursor-pointer appearance-none"
-                name="filter" id="filter">
+                <select
+                    onChange={(e) => {
+                        setFilter(e.target.value)
+                    }}
+                    className="bg-white border border-[#e8e4f8] text-[#1a1040] text-[11px] font-bold uppercase tracking-wider rounded-lg px-3 py-1.5 outline-none focus:border-[#7c3aed] cursor-pointer appearance-none"
+                    name="filter" id="filter">
                     <option value="All">All</option>
-                    {uniqueCategories.map((uniq)=>{
+                    {uniqueCategories.map((uniq) => {
                         return <option value={uniq}>{uniq}</option>
                     })}
                 </select>
@@ -43,11 +43,12 @@ const uniqueCategories = Array.from(
 
             {/* Transaction Items Container */}
             <div className="flex flex-col gap-3">
-                {transaction.map((item) => (
-                    if(item.category===filter){
+                {transaction
+                    .filter((item) => filter === "All" ? true : item.category === filter)
+                    .map((item) => (
                         <ExpenseItem key={item.id} item={item} />
-                    }
-                ))}
+                    ))
+                }
             </div>
         </div>
     )
