@@ -13,6 +13,10 @@ const ExpenseList = () => {
         )
     }
 
+const uniqueCategories = Array.from(
+  new Set(transaction.map((item) => item.category))
+)
+
     return (
         <div className="mt-8">
             {/* Header section matching Balance style */}
@@ -20,14 +24,15 @@ const ExpenseList = () => {
                 <h2 className="text-xs text-[#9991c4] uppercase tracking-[0.2em] font-bold">
                     Recent Transactions
                 </h2>
-                <select name="filter" id="filter">
+                <select 
+                onChange={()=>{
+                    
+                }}
+                name="filter" id="filter">
                     <option value="All">All</option>
-                    {transaction.map((item)=>{
-                        const cleanCatg=[];
-                        cleanCatg.push(item.category)
-
-                        }
-                    )}
+                    {uniqueCategories.map((uniq)=>{
+                        return <option value={uniq}>{uniq}</option>
+                    })}
                 </select>
                 <span className="text-[10px] bg-[#f8f7ff] text-[#7c3aed] px-2 py-1 rounded-full font-bold border border-[#e8e4f8]">
                     {transaction.length} Total
