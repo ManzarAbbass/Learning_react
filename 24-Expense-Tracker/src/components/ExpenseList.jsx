@@ -1,9 +1,10 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { expenseContextData } from "../context/ExpenseContext"
 import ExpenseItem from "./ExpenseItem"
 
 const ExpenseList = () => {
     const { transaction } = useContext(expenseContextData)
+    const [filter, setFilter] = useState([])
 
     if (transaction.length === 0) {
         return (
@@ -25,9 +26,10 @@ const uniqueCategories = Array.from(
                     Recent Transactions
                 </h2>
                 <select 
-                onChange={()=>{
-                    
+                onChange={(e)=>{
+                    setFilter(e.target.value)
                 }}
+                className="bg-white border border-[#e8e4f8] text-[#1a1040] text-[11px] font-bold uppercase tracking-wider rounded-lg px-3 py-1.5 outline-none focus:border-[#7c3aed] cursor-pointer appearance-none"
                 name="filter" id="filter">
                     <option value="All">All</option>
                     {uniqueCategories.map((uniq)=>{
