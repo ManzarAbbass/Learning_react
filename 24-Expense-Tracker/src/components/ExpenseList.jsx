@@ -23,10 +23,11 @@ const ExpenseList = () => {
                 <select name="filter" id="filter">
                     <option value="All">All</option>
                     {transaction.map((item)=>{
-                        if(item.category!==item.category){
-                            return <option value={item.category}>item.category</option>
+                        const cleanCatg=[];
+                        cleanCatg.push(item.category)
+
                         }
-                    })}
+                    )}
                 </select>
                 <span className="text-[10px] bg-[#f8f7ff] text-[#7c3aed] px-2 py-1 rounded-full font-bold border border-[#e8e4f8]">
                     {transaction.length} Total
