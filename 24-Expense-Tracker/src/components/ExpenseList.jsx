@@ -20,6 +20,14 @@ const ExpenseList = () => {
                 <h2 className="text-xs text-[#9991c4] uppercase tracking-[0.2em] font-bold">
                     Recent Transactions
                 </h2>
+                <select name="filter" id="filter">
+                    <option value="All">All</option>
+                    {transaction.map((item)=>{
+                        if(item.category!==item.category){
+                            return <option value={item.category}>item.category</option>
+                        }
+                    })}
+                </select>
                 <span className="text-[10px] bg-[#f8f7ff] text-[#7c3aed] px-2 py-1 rounded-full font-bold border border-[#e8e4f8]">
                     {transaction.length} Total
                 </span>
