@@ -5,13 +5,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const submitHandler = (evtObj) => {
     evtObj.preventDefault();
-  }
-  const emailHandler = (evtObj) => {
-    setEmail(evtObj.target.value);
-  }
-
-  const passwordHandler = (evtObj) => {
-    setPassword(evtObj.target.value);
+    setEmail("");
+    setPassword("");
   }
   return (
     <div className="h-screen w-screen flex items-center justify-center text-white">
@@ -23,7 +18,7 @@ const Login = () => {
           className="flex flex-col items-center justify-center">
           <input
             onChange={(e) => {
-              emailHandler(e)
+              setEmail(e.target.value)
             }}
             required
             className="border-2 border-emerald-600 bg-transparent py-4 px-5 text-xl outline-none rounded-full placeholder:text-gray-400"
@@ -32,7 +27,7 @@ const Login = () => {
             placeholder="Enter your email" />
           <input
             onChange={(e) => {
-              passwordHandler(e)
+              setPassword(e.target.value)
             }}
             required
             className="border-2 border-emerald-600 bg-transparent py-4 px-5 text-xl outline-none rounded-full placeholder:text-gray-400 mt-3"
