@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Login = () => {
+const Login = ( {handleLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const submitHandler = (evtObj) => {
@@ -13,6 +13,7 @@ const Login = () => {
       <div className="border-2 border-red-600 p-20 rounded-2xl">
         <form
           onSubmit={(e) => {
+            handleLogin(email,password)
             submitHandler(e)
           }}
           className="flex flex-col items-center justify-center">
