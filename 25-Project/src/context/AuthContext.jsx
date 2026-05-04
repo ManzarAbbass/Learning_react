@@ -1,7 +1,7 @@
-const AuthContext = () => {
+const AuthContext = ( {children} ) => {
   return (
     <div>
-      
+      {children}
     </div>
   )
 }
