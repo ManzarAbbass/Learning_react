@@ -2,13 +2,13 @@ import Header from "../others/Header"
 import TaskListNumber from "../others/TaskListNumber"
 import TaskList from "../TaskList/TaskList"
 
-const EmployeeDashboard = (props) => {
-  console.log(props)
+const EmployeeDashboard = ({ data }) => {
+  // console.log(data)
   return (
-    <div className="h-screen p-5">
-      <Header />
-      <TaskListNumber />
-      <TaskList/>
+    <div className="h-screen p-5 text-white">
+      <Header data={data}/>
+      <TaskListNumber data={data}/>
+      <TaskList data={data}/>
     </div>
   )
 }

@@ -7,7 +7,7 @@ import { AuthContext } from "./context/AuthProvider"
 
 const App = () => {
   const [user, setUser] = useState(null)
-  const [LoggedInUserData, setLoggedInUserData] = useState(null)
+  const [loggedInUserData, setLoggedInUserData] = useState(null)
   const authData = useContext(AuthContext)
 
   // useEffect(()=>{
@@ -19,30 +19,35 @@ const App = () => {
   //   }
   // },[authData])
 
-  const handleLogin = (email, password) => {
-    // Implementation for handling login
-    if(email == "admin@me.com" && password == "123"){
-      setUser("admin")
-      localStorage.setItem("LoggedInUser", JSON.stringify({role:"admin"}))
-    }else if(authData){
-      const employee = authData.employees.find(emp => emp.email == email && emp.password == password)
-      if(employee){
+const handleLogin = (email, password) => {
+  if (email == "admin@me.com" && password == "123") {
+    setUser("admin")
+    localStorage.setItem("loggedInUser", JSON.stringify({ role: "admin" }))
+  } 
+  else if (authData) { // Check karein ke employees array hai ya nahi
+    const employee = authData.employees.find((emp)=> emp.email ==email && emp.password ==password)
+    if (employee) {
       setUser("employee")
       setLoggedInUserData(employee)
-      localStorage.setItem("LoggedInUser", JSON.stringify({role:"employee"}))
-    }}
-    else{
+      localStorage.setItem("loggedInUser", JSON.stringify({ role: "employee"}))
+    } 
+  }
+  else {
       alert("Invalid Credentials")
     }
   }
-  return (
-    <>
-      {!user ?<Login handleLogin={handleLogin}/>: ''}
-      {user=="admin"?<AdminDashboard/>:<EmployeeDashboard/>}
-      {/* <EmployeeDashboard /> */}
-      {/* <AdminDashboard/> */}
-    </>
-  )
+
+return (
+  <>
+    {!user ? <Login handleLogin={handleLogin} /> : ""}
+    
+    {user === "admin" ? (
+      <AdminDashboard />
+    ) : (user === "employee" && loggedInUserData) ? ( // Check if data is not null
+      <EmployeeDashboard data={loggedInUserData} />
+    ) : null}
+  </>
+)
 }
 
 export default App
