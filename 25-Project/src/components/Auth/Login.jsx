@@ -13,8 +13,8 @@ const Login = ( {handleLogin }) => {
       <div className="border-2 border-red-600 p-20 rounded-2xl">
         <form
           onSubmit={(e) => {
-            handleLogin(email,password)
             submitHandler(e)
+            handleLogin(email,password)
           }}
           className="flex flex-col items-center justify-center">
           <input
