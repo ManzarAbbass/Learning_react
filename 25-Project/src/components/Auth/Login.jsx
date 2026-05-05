@@ -35,11 +35,7 @@ const Login = ( {handleLogin }) => {
             value={password}
             type="password"
             placeholder="Enter password" />
-          <button
-            onClick={() => {
-
-            }}
-            className="text-white outline-none border-none bg-emerald-600 text-xl py-3 px-5 rounded-full mt-5 w-full">Log in</button>
+          <button className="text-white outline-none border-none bg-emerald-600 text-xl py-3 px-5 rounded-full mt-5 w-full">Log in</button>
         </form>
       </div>
     </div>
