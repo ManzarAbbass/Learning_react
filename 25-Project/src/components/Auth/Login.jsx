@@ -9,7 +9,7 @@ const Login = ( {handleLogin }) => {
     setPassword("");
   }
   return (
-    <div className="h-screen w-screen flex items-center justify-center text-white">
+    <div key={"login"} className="h-screen w-screen flex items-center justify-center text-white">
       <div className="border-2 border-red-600 p-20 rounded-2xl">
         <form
           onSubmit={(e) => {
