@@ -1,11 +1,18 @@
-import React from 'react'
+import  { useState } from 'react'
 
 const Header = ({ data ,setUser,setLoggedInUserData}) => {
+
+  const [username, setUserName] = useState("")
   const backToLogin= ()=>{
     localStorage.removeItem('loggedInUser')
     setUser("")
     setLoggedInUserData("")
   }
+  // if(!data){
+  //   setUserName("Admin")
+  // }else{
+  //   setUserName(data.firstName)
+  // }
   return (
     <div className='text-white flex items-center justify-between'>
       <h1 className='text-2xl font-medium'>hello, <br /><span className='text-3xl font-semibold'>{data?.firstName} 👋</span></h1>

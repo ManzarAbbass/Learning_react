@@ -39,7 +39,7 @@ const handleLogin = (email, password) => {
       alert("Invalid Credentials")
     }
   }
-console.log("current user :", user )
+// console.log("current user :", user )
 return (
   <>
     {!user ? <Login handleLogin={handleLogin}/> : ""}
