@@ -39,11 +39,10 @@ const handleLogin = (email, password) => {
       alert("Invalid Credentials")
     }
   }
-
+console.log("current user :", user )
 return (
   <>
     {!user ? <Login handleLogin={handleLogin}/> : ""}
-    
     {user === "admin"? (
       <AdminDashboard  setUser={setUser} setLoggedInUserData={setLoggedInUserData} />
     ) : (user === "employee" && loggedInUserData) ? ( // Check if data is not null
