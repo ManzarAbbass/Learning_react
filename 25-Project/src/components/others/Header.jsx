@@ -4,6 +4,8 @@ const Header = ({ data ,setUser,setLoggedInUserData}) => {
 
   const [username, setUserName] = useState("")
   const backToLogin= ()=>{
+    // localStorage.setItem("loggedInUser","")
+    // window.location.reload()
     localStorage.removeItem('loggedInUser')
     setUser("")
     setLoggedInUserData("")
