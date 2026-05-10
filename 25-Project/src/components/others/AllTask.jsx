@@ -6,22 +6,22 @@ const AllTask = () => {
   // console.log(authData.employees)
   return (
 
-    <div id="Alltask" className="bg-[#2c2c2c] p-5 mt-5 rounded-2xl h-48 overflow-auto">
-      <div className="bg-red-400 mb-2 py-2 px-4 flex justify-between items-center rounded ">
+    <div id="Alltask" className="bg-[#2c2c2c] p-5 mt-5 rounded-2xl">
+      <div className="bg-red-400 mb-2 py-2 px-4 flex justify-between items-center gap-2 rounded">
           <h2 className="w-1/5 bg-red-600">Employee Name</h2>
           <h3 className="w-1/5 bg-red-600">New Task</h3>
           <h5 className="w-1/5 bg-red-600">Active Task</h5>
           <h5 className="w-1/5 bg-red-600">Completed</h5>
           <h5 className="w-1/5 bg-red-600">Failed</h5>
         </div>
-      <div>
+      <div className="overflow-auto">
       {authData.employees.map(function (elem,idx) {
-        return <div key={idx} className="bg-red-400 mb-2 py-2 px-4 flex justify-between items-center rounded ">
-          <h2 className="w-1/5 bg-red-600">{elem.firstName}</h2>
-          <h3 className="w-1/5 bg-red-600">Task</h3>
-          <h5 className="w-1/5 bg-red-600">Status: In Progress</h5>
-          <h5 className="w-1/5 bg-red-600">Status: In Progress</h5>
-          <h5 className="w-1/5 bg-red-600">Failed</h5>
+        return <div key={idx} className="bg-black-400  mb-2 py-2 px-4 flex justify-between items-center rounded border-1 border-green-300 ">
+          <h2 className="w-1/5 text-red-400">{elem.firstName}</h2>
+          <h3 className="w-1/5 text-blue-400">Task</h3>
+          <h5 className="w-1/5 text-yellow-400">Status: In Progress</h5>
+          <h5 className="w-1/5 text-green-400">Status: In Progress</h5>
+          <h5 className="w-1/5 text-red-400">Failed</h5>
         </div>
       })}
   </div>
