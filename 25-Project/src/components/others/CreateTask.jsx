@@ -6,8 +6,10 @@ const CreateTask = () => {
   const [assignTo, setAssignTo] = useState("")
   const [taskCategory, setTaskCategory] = useState("")
   const [taskDescription, setTaskDescription] = useState("")
+  const [task, setTask] = useState({})
   const submitHandler=(evtObj)=>{
     evtObj.preventDefault();
+    setTask(taskTitle,taskDate,assignTo,taskCategory,taskDescription)
     setTasktitle("")
     setTaskDate("")
     setAssignTo("")
