@@ -6,17 +6,26 @@ const CreateTask = () => {
   const [assignTo, setAssignTo] = useState("")
   const [taskCategory, setTaskCategory] = useState("")
   const [taskDescription, setTaskDescription] = useState("")
-  const [task, setTask] = useState({})
+
+  const [newTask, setNewTask] = useState({})
+
   const submitHandler=(evtObj)=>{
     evtObj.preventDefault();
-    setTask(taskTitle,taskDate,assignTo,taskCategory,taskDescription)
+    setNewTask({taskTitle,taskDate,taskCategory,taskDescription,active:false,newTask:true,failed:false,completed:false})
+    // console.log(newTask) ----> yaha pe khali obj is liye araha he kiuke setTask asynchronus work krha he 
+    const data=JSON.parse(localStorage.getItem("employees"));
+    data.forEach(function(empl){
+      if(assignTo== empl.firstName){
+        empl.tasks.push(newTask)
+      }
+    })
     setTasktitle("")
     setTaskDate("")
     setAssignTo("")
     setTaskCategory("")
     setTaskDescription("")
   }
-  console.log(taskTitle,taskDate,taskCategory,assignTo,taskDescription)
+  // console.log(task)
   return (
       <div className="p-5 bg-[#2c2c2c] rounded mt-10">
         <form 
