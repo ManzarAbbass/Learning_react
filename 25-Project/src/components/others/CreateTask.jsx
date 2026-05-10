@@ -1,4 +1,7 @@
 const CreateTask = () => {
+  const submitHandler=()=>{
+    
+  }
   return (
       <div className="p-5 bg-[#2c2c2c] rounded mt-10">
         <form className="flex flex-wrap w-full  items-start justify-between">
