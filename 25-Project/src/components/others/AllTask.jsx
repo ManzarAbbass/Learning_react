@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { AuthContext } from "../../context/AuthProvider"
 
 const AllTask = () => {
-  const authData = useContext(AuthContext)
+  const {userData,setuserData} = useContext(AuthContext)
   // console.log(authData.employees)
   return (
 
@@ -15,7 +15,7 @@ const AllTask = () => {
           <h5 className="text-lg font-medium w-1/5 bg-red-600">Failed</h5>
         </div>
       <div className="overflow-auto">
-      {authData.employees.map(function (elem,idx) {
+      {userData?.employees?.map(function (elem,idx) {
         return <div key={idx} className="bg-black-400  mb-2 py-2 px-4 flex justify-between items-center rounded border-1 border-green-300 ">
           <h2 className="text-lg font-medium w-1/5 text-red-400">{elem.firstName}</h2>
           <h3 className="text-lg font-medium w-1/5 text-blue-400">{elem.taskNumbers.newTask}</h3>
