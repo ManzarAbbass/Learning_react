@@ -8,12 +8,14 @@ const CreateTask = () => {
   const [taskCategory, setTaskCategory] = useState("")
   const [taskDescription, setTaskDescription] = useState("")
 
-  const [newTask, setNewTask] = useState({})
+  // const [newTask, setNewTask] = useState({})
   const { userData, setuserData } = useContext(AuthContext)
 
   const submitHandler = (evtObj) => {
     evtObj.preventDefault();
-    setNewTask({ taskTitle, taskDate, taskCategory, taskDescription, active: false, newTask: true, failed: false, completed: false })
+    // setNewTask()
+    const newTask={taskTitle, taskDate, taskCategory, taskDescription, active: false, newTask: true, failed: false, completed: false }
+
     // console.log(newTask) ----> yaha pe khali obj is liye araha he kiuke setTask asynchronus work krha he 
     // 1. Data localStorage se liya aur update kiya (Ye part aapka sahi hai)
     const data = JSON.parse(localStorage.getItem("employees"));

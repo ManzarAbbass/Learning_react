@@ -10,14 +10,14 @@ const Header = ({ data ,setUser,setLoggedInUserData}) => {
     setUser("")
     setLoggedInUserData("")
   }
-  // if(!data){
+  // if(data=="admin"){
   //   setUserName("Admin")
   // }else{
   //   setUserName(data.firstName)
   // }
   return (
     <div className='text-white flex items-center justify-between'>
-      <h1 className='text-2xl font-medium'>hello, <br /><span className='text-3xl font-semibold'>{data?.firstName} 👋</span></h1>
+      <h1 className='text-2xl font-medium'>hello, <br /><span className='text-3xl font-semibold'>{data?.firstName || "Admin"} 👋</span></h1>
       <button 
       onClick={()=>{
         backToLogin()

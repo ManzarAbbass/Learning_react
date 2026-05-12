@@ -2,7 +2,7 @@ import AllTask from "../others/AllTask"
 import CreateTask from "../others/CreateTask"
 import Header from "../others/Header"
 
-const AdminDashboard = ({ setUser,setLoggedInUserData }) => {
+const AdminDashboard = ({ data,setUser,setLoggedInUserData }) => {
   return (
     <div className="h-screen w-full p-10 text-white">
       <Header setUser={setUser} setLoggedInUserData={setLoggedInUserData}/>

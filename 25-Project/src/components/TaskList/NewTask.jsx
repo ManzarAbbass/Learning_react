@@ -10,9 +10,7 @@ console.log(elem)
         <h2 className='mt-5 text-2xl font-semibold'>{elem.taskTitle}</h2>
         <p className='text-sm mt-2'>{elem.taskDescription}</p>
         <div className='mt-4'>
-            <button>
                 <button>Accept Task</button>
-            </button>
         </div>
       </div>
   )
