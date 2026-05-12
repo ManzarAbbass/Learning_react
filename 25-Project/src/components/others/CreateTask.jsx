@@ -23,6 +23,8 @@ const CreateTask = () => {
         empl.taskNumbers.newTask = empl.taskNumbers.newTask + 1;
       }
     })
+    console.log(data);
+    
 
     // 2. LocalStorage update karein
     localStorage.setItem("employees", JSON.stringify(data));
