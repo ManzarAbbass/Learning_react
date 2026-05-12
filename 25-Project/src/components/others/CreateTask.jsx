@@ -2,31 +2,41 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 
 const CreateTask = () => {
-  const [taskTitle, setTasktitle] = useState("")
-  const [taskDate, setTaskDate] = useState("")
-  const [assignTo, setAssignTo] = useState("")
-  const [taskCategory, setTaskCategory] = useState("")
-  const [taskDescription, setTaskDescription] = useState("")
+  const [taskTitle, setTasktitle] = useState("");
+  const [taskDate, setTaskDate] = useState("");
+  const [assignTo, setAssignTo] = useState("");
+  const [taskCategory, setTaskCategory] = useState("");
+  const [taskDescription, setTaskDescription] = useState("");
 
-  // const [newTask, setNewTask] = useState({})
-  const { userData, setuserData } = useContext(AuthContext)
+  const { userData, setuserData } = useContext(AuthContext);
 
   const submitHandler = (evtObj) => {
     evtObj.preventDefault();
-    // setNewTask()
-    const newTask={taskTitle, taskDate, taskCategory, taskDescription, active: false, newTask: true, failed: false, completed: false }
 
-    // console.log(newTask) ----> yaha pe khali obj is liye araha he kiuke setTask asynchronus work krha he 
-    // 1. Data localStorage se liya aur update kiya (Ye part aapka sahi hai)
+    const newTask = {
+      taskTitle,
+      taskDate,
+      taskCategory,
+      taskDescription,
+      active: false,
+      newTask: true,
+      failed: false,
+      completed: false
+    };
+
+    // console.log(newTask) ----> yaha pe khali obj is liye araha he kiuke setTask asynchronous work krha he
+
+    // 1. Data localStorage se liya aur update kiya
     const data = JSON.parse(localStorage.getItem("employees"));
+
     data.forEach(function (empl) {
       if (assignTo == empl.firstName) {
-        empl.tasks.push(newTask)
+        empl.tasks.push(newTask);
         empl.taskNumbers.newTask = empl.taskNumbers.newTask + 1;
       }
-    })
+    });
+
     console.log(data);
-    
 
     // 2. LocalStorage update karein
     localStorage.setItem("employees", JSON.stringify(data));
@@ -34,85 +44,79 @@ const CreateTask = () => {
     // 3. Sahi tareeke se State update karein (Object ke andar array bhejein)
     setuserData({ ...userData, employees: data });
 
+    setTasktitle("");
+    setTaskDate("");
+    setAssignTo("");
+    setTaskCategory("");
+    setTaskDescription("");
+  };
 
-    setTasktitle("")
-    setTaskDate("")
-    setAssignTo("")
-    setTaskCategory("")
-    setTaskDescription("")
-  }
-  // console.log(task)
   return (
-    <div className="p-5 bg-[#2c2c2c] rounded mt-10">
+    <div className="bg-white border border-gray-200 rounded-3xl shadow-sm p-6 mt-10">
+
+      <h2 className="text-2xl font-bold text-gray-800 mb-6">
+        Create Task
+      </h2>
+
       <form
-        onSubmit={(e) => {
-          submitHandler(e)
-        }}
-        className="flex flex-wrap w-full  items-start justify-between">
-        <div className="w-1/2">
-          <div className="mb-5">
-            <h3 className="text-sm text-gray-300 mb-0.5">Task Title</h3>
-            <input
-              onChange={(e) => {
-                setTasktitle(e.target.value)
-              }}
-              value={taskTitle}
-              className="text-sm py-2 px-3 w-4/5 rounded outline-none bg-transparent border-[1px] border-white"
-              type="text"
-              placeholder="Make a UI design" />
-          </div>
+        onSubmit={submitHandler}
+        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+      >
 
-          <div className="my-5">
-            <h3 className="text-sm text-gray-300 mb-0.5">Date</h3>
-            <input
-              onChange={(e) => {
-                setTaskDate(e.target.value)
-              }}
-              value={taskDate}
-              className="text-sm py-2 px-3 w-4/5 rounded outline-none bg-transparent border-[1px] border-white"
-              type="date" />
-          </div>
+        <div className="space-y-4">
 
-          <div className="mb-5">
-            <h3 className="text-sm text-gray-300 mb-0.5">Asign to</h3>
-            <input
-              onChange={(e) => {
-                setAssignTo(e.target.value)
-              }}
-              value={assignTo}
-              className="text-sm py-2 px-3 w-4/5 rounded outline-none bg-transparent border-[1px] border-white"
-              type="text"
-              placeholder="employee name" />
-          </div>
-          <div className="mb-5">
-            <h3 className="text-sm text-gray-300 mb-0.5">Category</h3>
-            <input
-              onChange={(e) => {
-                setTaskCategory(e.target.value)
-              }}
-              value={taskCategory}
-              className="text-sm py-2 px-3 w-4/5 rounded outline-none bg-transparent border-[1px] border-white"
-              type="text"
-              placeholder="design, dev, etc" />
-          </div>
+          <input
+            onChange={(e) => setTasktitle(e.target.value)}
+            value={taskTitle}
+            className="w-full bg-gray-100 p-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-500"
+            type="text"
+            placeholder="Task Title"
+          />
+
+          <input
+            onChange={(e) => setTaskDate(e.target.value)}
+            value={taskDate}
+            className="w-full bg-gray-100 p-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-500"
+            type="date"
+          />
+
+          <input
+            onChange={(e) => setAssignTo(e.target.value)}
+            value={assignTo}
+            className="w-full bg-gray-100 p-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-500"
+            type="text"
+            placeholder="Assign to (employee name)"
+          />
+
+          <input
+            onChange={(e) => setTaskCategory(e.target.value)}
+            value={taskCategory}
+            className="w-full bg-gray-100 p-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-500"
+            type="text"
+            placeholder="Category (design, dev, etc)"
+          />
+
         </div>
-        <div className="w-1/2">
-          <div className="mb-5">
-            <h3 className="text-sm text-gray-300 mb-0.5">Description</h3>
-            <textarea
-              onChange={(e) => {
-                setTaskDescription(e.target.value)
-              }}
-              value={taskDescription}
-              className="text-sm py-2 px-3 w-4/5 rounded outline-none bg-transparent border-[1px] border-white w-full"
-              name="" id="" cols="30" rows="5"
-              placeholder="Enter task description"></textarea>
-          </div>
-          <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded w-full">Create Task</button>
+
+        <div className="space-y-4">
+
+          <textarea
+            onChange={(e) => setTaskDescription(e.target.value)}
+            value={taskDescription}
+            className="w-full bg-gray-100 p-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-500"
+            rows="6"
+            placeholder="Task description"
+          ></textarea>
+
+          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold">
+            Create Task
+          </button>
+
         </div>
+
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default CreateTask
+export default CreateTask;

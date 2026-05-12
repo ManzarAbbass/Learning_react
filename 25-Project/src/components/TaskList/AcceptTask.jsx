@@ -1,17 +1,36 @@
-const AcceptTask = ( {elem} ) => {
+const AcceptTask = ({ elem }) => {
   return (
-      <div className='flex-shrink-0 h-full w-[300px] p-5 bg-yellow-400 rounded-xl'>
-        <div className='flex justify-between items-center'>
-        <h3 className='bg-yellow-600 px-3 py-1 text-sm rounded-md'>{elem.category}</h3>
-        <h4 className='text-sm'>{elem.taskDate}</h4>
-        </div>
-        <h2 className='mt-5 text-2xl font-semibold'>{elem.taskTitle}</h2>
-        <p className='text-sm mt-2'>{elem.taskDescription}</p>
-        <div className="flex justify-between mt-4">
-          <button className="bg-yellow-800 py-1 px-2 text-sm rounded">mark as Completed</button>
-          <button className="bg-yellow-800 py-1 px-2 text-sm rounded">mark as Failed</button>
-        </div>
+    <div className='flex-shrink-0 w-[320px] min-h-[320px] bg-white border border-gray-200 rounded-3xl p-6 shadow-md hover:shadow-xl transition-all duration-300'>
+
+      <div className='flex justify-between items-center'>
+        <h3 className='bg-yellow-100 text-yellow-700 px-4 py-1 text-sm font-medium rounded-full'>
+          {elem.category}
+        </h3>
+
+        <h4 className='text-sm text-gray-500'>
+          {elem.taskDate}
+        </h4>
       </div>
+
+      <h2 className='mt-6 text-2xl font-bold text-gray-800'>
+        {elem.taskTitle}
+      </h2>
+
+      <p className='text-sm text-gray-500 mt-3 leading-relaxed'>
+        {elem.taskDescription}
+      </p>
+
+      <div className="flex gap-3 mt-8">
+        <button className="flex-1 bg-green-500 hover:bg-green-600 transition-all duration-300 py-3 px-2 text-sm font-medium rounded-xl text-white">
+          Mark Completed
+        </button>
+
+        <button className="flex-1 bg-red-500 hover:bg-red-600 transition-all duration-300 py-3 px-2 text-sm font-medium rounded-xl text-white">
+          Mark Failed
+        </button>
+      </div>
+
+    </div>
   )
 }
 
