@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from "react-redux"
-import { decreament, increament } from "./redux/features/counterSlice"
+import { decreament, increament, increamentbyfive } from "./redux/features/counterSlice"
+import { useState } from "react"
 
 const App = () => {
+  const [amount, setAmount] = useState("")
   const dispatch=useDispatch()
   const count= useSelector((state)=>state.counter.value)
 
@@ -18,6 +20,19 @@ const App = () => {
         dispatch(decreament())
       }}
       className="px-2 py-1 m-4 bg-blue-400">decreament</button>
+      <input 
+      onChange={(e)=>{
+        setAmount(e.target.value)
+      }}
+      value={amount}
+      type="number" placeholder="select number" />
+      <button 
+      onClick={()=>{
+        dispatch(increamentbyfive(Number(amount)))
+      }}
+      className="px-2 py-1 m-4 bg-blue-400">
+        Increase by Amount
+      </button>
     </div>
   )
 }
