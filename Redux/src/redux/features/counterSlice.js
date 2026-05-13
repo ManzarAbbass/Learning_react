@@ -6,8 +6,8 @@ export const counterSlice=createSlice({ // counterSlice hmne feature banaya coun
         value:0
     },
     reducers:{ // iske reducer ke andar actions hein do increament or decreament 
-        increament:((state)=>state.value+=1),
-        decreament:((state)=>state.value-=1)
+        increament:(state)=>{state.value+=1},
+        decreament:(state)=>{state.value-=1}
     }
 })
 
