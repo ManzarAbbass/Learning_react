@@ -1,7 +1,9 @@
 const App = () => {
   return (
     <div className="text-black">
-      Redux
+      <h1>0</h1>
+      <button>increament</button>
+      <button>decreament</button>
     </div>
   )
 }
