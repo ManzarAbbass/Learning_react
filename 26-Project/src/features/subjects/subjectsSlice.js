@@ -8,5 +8,5 @@ export const subjectsSlice = createSlice({
     }
 })
 
-export const {addSubject} =subjectsSlice.actions
+export const {addSubject} = subjectsSlice.actions
 export default subjectsSlice.reducer
