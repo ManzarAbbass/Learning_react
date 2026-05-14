@@ -7,8 +7,8 @@ const SubjectList = () => {
   if(subjects.length===0){
     return <div className="bg-yellow-50 w-fit p-5 border-2 border-amber-400 rounded-xl"><h1 className="text-gray-400 text-2xl">"No subjects added yet"</h1></div>
   }
-  return (subjects.map((subj,idx)=>{
-    return <div key={idx} className="max-w-sm p-5 bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-lg transition duration-200 flex flex-col justify-between">
+  return (subjects.map((subj,id)=>{
+    return <div key={id} className="max-w-sm p-5 bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-lg transition duration-200 flex flex-col justify-between">
     <div>
 
         <div className="flex items-start justify-between gap-4 mb-3">
