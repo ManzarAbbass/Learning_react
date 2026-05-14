@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch} from "react-redux"
 import { addSubject } from "../../features/subjects/subjectsSlice";
 
 const AddSubject = () => {
   const dispatch = useDispatch()
-  const subjects = useSelector((state) => state.subjects)
 
   const [subjectname, setSubjectName] = useState("")
   const [hours, setHours] = useState("")
@@ -62,7 +61,7 @@ const AddSubject = () => {
             Hours
           </label>
           <input
-            onChange={(e) => setHours(e.target.value)}
+            onChange={(e) => setHours(Number(e.target.value))}
             value={hours}
             type="number"
             placeholder="e.g. 4"
