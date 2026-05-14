@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit"
-const store= configureStore({
+import { subjectsSlice } from "../features/subjects/subjectsSlice"
+export const store= configureStore({
     reducer:{
-        
+        subjects:subjectsSlice
     }
 })
