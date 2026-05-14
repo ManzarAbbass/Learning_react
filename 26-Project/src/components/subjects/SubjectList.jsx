@@ -1,12 +1,15 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { deleteSubject } from "../../features/subjects/subjectsSlice"
 
 const SubjectList = () => {
+  const dispatch = useDispatch()  
   const subjects= useSelector((state)=>state.subjects)
   console.log(subjects)
 
   if(subjects.length===0){
     return <div className="bg-yellow-50 w-fit p-5 border-2 border-amber-400 rounded-xl"><h1 className="text-gray-400 text-2xl">"No subjects added yet"</h1></div>
   }
+
   return (subjects.map((subj,id)=>{
     return <div key={id} className="max-w-sm p-5 bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-lg transition duration-200 flex flex-col justify-between">
     <div>
@@ -15,7 +18,11 @@ const SubjectList = () => {
             <h3 className="text-xl font-bold text-gray-800 tracking-tight capitalize">
                 {subj.subjectname}
             </h3>
-            <button className="p-1.5 text-gray-400 hover:text-red-500 rounded-lg hover:bg-red-50 transition duration-150" title="Delete Subject">
+            <button 
+            onClick={()=>{
+                dispatch(deleteSubject(subj.id))
+            }}
+            className="p-1.5 text-gray-400 hover:text-red-500 rounded-lg hover:bg-red-50 transition duration-150" title="Delete Subject">
                 <svg xmlns="w3.org" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                 </svg>
