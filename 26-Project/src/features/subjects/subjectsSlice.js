@@ -5,7 +5,7 @@ export const subjectsSlice = createSlice({
     initialState:[],
     reducers:{
         addSubject:(state,actions)=>{state.push(actions.payload)},
-        deleteSubject:(state,actions)=>{return state.filter((subj)=>subj.id!==actions.payload)}
+        deleteSubject:(state,action)=>{return state.filter((subj)=>subj.id!==action.payload)}
     }
 })
 
