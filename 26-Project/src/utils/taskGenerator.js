@@ -6,7 +6,7 @@ const generateTask=(subject)=>{
     else if(subject.priority.toLowerCase()==="medium" && subject.difficulty.toLowerCase()==="medium"){
         // medium task show krne hein
     }
-    else if(subject.priority.toLowerCase()==="easy" && subject.difficulty.toLowerCase()==="low"){
+    else if(subject.priority.toLowerCase()==="low" && subject.difficulty.toLowerCase()==="easy"){
         // low task show krne hein
     }
     else{

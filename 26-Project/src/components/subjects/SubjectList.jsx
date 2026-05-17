@@ -4,7 +4,7 @@ import { deleteSubject } from "../../features/subjects/subjectsSlice"
 const SubjectList = () => {
   const dispatch = useDispatch()  
   const subjects= useSelector((state)=>state.subjects)
-  console.log(subjects)
+//   console.log(subjects)
 
   if(subjects.length===0){
     return <div className="bg-yellow-50 w-fit p-5 border-2 border-amber-400 rounded-xl"><h1 className="text-gray-400 text-2xl">"No subjects added yet"</h1></div>
